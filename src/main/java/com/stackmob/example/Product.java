@@ -18,14 +18,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
  
-public class SetHighScore implements CustomCodeMethod {
+public class Product implements CustomCodeMethod {
  
   /**
    * Name our custom code method
    */
   @Override
   public String getMethodName() {
-    return "set_high_score";
+    return "update_product";
   }
  
   /**
