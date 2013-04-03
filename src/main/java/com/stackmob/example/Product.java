@@ -55,8 +55,8 @@ public class Product implements CustomCodeMethod {
     String new_statii[] =null;
     JSONArray old_cats=null;
     JSONArray old_statii=null;
-    Hashset all_cats_hs=null;
-    Hashset all_statii_hs=null;
+    HashSet all_cats_hs=null;
+    HashSet all_statii_hs=null;
     String all_cats[]=null;
  
     StringBuilder sb = new StringBuilder(verb + " =>");
