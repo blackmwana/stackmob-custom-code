@@ -89,7 +89,7 @@ public class Product implements CustomCodeMethod {
  
     map.put("message", sb.toString());
     map.put("verb", verb);
-    map.put("reqbody",reqb)
+    map.put("reqbody",reqb);
     return new ResponseToProcess(HttpURLConnection.HTTP_OK, map);
   }
  
