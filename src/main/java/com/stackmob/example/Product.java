@@ -70,23 +70,22 @@ public class Product implements CustomCodeMethod {
      	 //here we collect all the categories and statii both in the new object
        if (!rb.isNull("categories")){
            JSONArray new_cats_ja= rb.getJSONArray("categories");
-															if(new_cats_ja.length()>0){
-																	new_cats[] = new String[new_cats_ja.length()];
-																	for(int i=0;i<new_cats_ja.length();i++){
-																				new_cats[i] = new_cats_ja.getString(i);//
-																					//all_cats_hs.add(new_cats_ja.getString(i));
-																	}	
-																	//all_cats=all_cats_hs.toArray();
-																}
+ 			if(new_cats_ja.length()>0){
+			new_cats = new String[new_cats_ja.length()];
+			for(int i=0;i<new_cats_ja.length();i++){
+				new_cats[i] = new_cats_ja.getString(i);//
+				//all_cats_hs.add(new_cats_ja.getString(i));
+			}	
+			//all_cats=all_cats_hs.toArray();														}
            }
         if (!rb.isNull("statii")){
            JSONArray new_statii_ja= rb.getJSONArray("statii");
            if(new_statii_ja.length()>0){
-           			new_statii[] = new String[new_statii_ja.length()];
-															for(int i=0;i<new_statii_ja.length();i++){
-																		new_statii[i] = new_statii_ja.getString(i);
-																	//all_statii_hs.add(new_statii_ja.getString(i));
-																	}
+           			new_statii = new String[new_statii_ja.length()];
+				for(int i=0;i<new_statii_ja.length();i++){
+					new_statii[i] = new_statii_ja.getString(i);
+				//all_statii_hs.add(new_statii_ja.getString(i));
+				}
            }
            //all_statii=all_statii_hs.toArray();
            }
