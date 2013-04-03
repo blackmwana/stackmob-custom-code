@@ -47,7 +47,7 @@ public class Product implements CustomCodeMethod {
  
     Map<String, Object> map = new HashMap<String, Object>();
     String verb = request.getVerb().toString();
-    String reqb;
+    String reqb=null;
  
     StringBuilder sb = new StringBuilder(verb + " =>");
  
