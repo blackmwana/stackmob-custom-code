@@ -47,6 +47,7 @@ public class Product implements CustomCodeMethod {
  
     Map<String, Object> map = new HashMap<String, Object>();
     String verb = request.getVerb().toString();
+    String reqb;
  
     StringBuilder sb = new StringBuilder(verb + " =>");
  
@@ -54,7 +55,7 @@ public class Product implements CustomCodeMethod {
      if (!request.getBody().isEmpty()) {
      	try{
      		JSONObject rb= new JSONObject(request.getBody());
-     		String reqb = rb.toString();
+     	 reqb = rb.toString();
     		if (verb.equalsIgnoreCase("post")){
      
     		}
