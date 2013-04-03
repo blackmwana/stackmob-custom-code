@@ -11,6 +11,7 @@ import java.lang.StringBuilder;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
  
@@ -48,6 +49,15 @@ public class Product implements CustomCodeMethod {
     Map<String, Object> map = new HashMap<String, Object>();
     String verb = request.getVerb().toString();
     String reqb=null;
+    JSONArray new_cats_ja=null;
+    String new_cats[] =null;
+    JSONArray new_statii_ja=null;
+    String new_statii[] =null;
+    JSONArray old_cats=null;
+    JSONArray old_statii=null;
+    Hashset all_cats_hs=null;
+    Hashset all_statii_hs=null;
+    Sring all_cats[]=null;
  
     StringBuilder sb = new StringBuilder(verb + " =>");
  
@@ -56,14 +66,38 @@ public class Product implements CustomCodeMethod {
      	try{
      		JSONObject rb= new JSONObject(request.getBody());
      	 reqb = rb.toString();
+     	 
+     	 //here we collect all the categories and statii both in the new object
+       if (!rb.isNull("categories")){
+           JSONArray new_cats_ja= rb.getJSONArray("categories");
+															if(new_cats_ja.length()>0){
+																	new_cats[] = new String[new_cats_ja.length()];
+																	for(int i=0;i<new_cats_ja.length();i++){
+																				new_cats[i] = new_cats_ja.getString(i);//
+																					//all_cats_hs.add(new_cats_ja.getString(i));
+																	}	
+																	//all_cats=all_cats_hs.toArray();
+																}
+           }
+        if (!rb.isNull("statii")){
+           JSONArray new_statii_ja= rb.getJSONArray("statii");
+           if(new_statii_ja.length()>0){
+           			new_statii[] = new String[new_statii_ja.length()];
+															for(int i=0;i<new_statii_ja.length();i++){
+																		new_statii[i] = new_statii_ja.getString(i);
+																	//all_statii_hs.add(new_statii_ja.getString(i));
+																	}
+           }
+           //all_statii=all_statii_hs.toArray();
+           }
     		if (verb.equalsIgnoreCase("post")){
-     
+     //increment all
     		}
     		if (verb.equalsIgnoreCase("put")){
-     
+     //get all values in new + existing versions and then compare
     		}
     		if (verb.equalsIgnoreCase("delete")){
-     
+     //decrement all
     		}
     	
     	}
