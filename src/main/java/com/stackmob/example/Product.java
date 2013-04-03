@@ -34,8 +34,9 @@ public class SetHighScore implements CustomCodeMethod {
   @Override
   public List<String> getParams() {
     return new ArrayList<String>() {{
-      add("username");
-      add("score");
+      //add("username");
+      //add("score");
+      add("product");
     }};
   }
  
@@ -50,7 +51,26 @@ public class SetHighScore implements CustomCodeMethod {
     StringBuilder sb = new StringBuilder(verb + " =>");
  
     // this is where we handle the special case for `POST` and `PUT` requests
-    if (verb.equalsIgnoreCase("post") || verb.equalsIgnoreCase("put")) {
+     if (!request.getBody().isEmpty()) {
+     	try{
+     		JSONObject rb= new JSONObject(request.getBody());
+     		String reqb = rb.toString();
+    		if (verb.equalsIgnoreCase("post")){
+     
+    		}
+    		if (verb.equalsIgnoreCase("put")){
+     
+    		}
+    		if (verb.equalsIgnoreCase("delete")){
+     
+    		}
+    	
+    	}
+    	catch(JSONException e){
+    		
+    	}
+     } else sb.append("Request body is empty");
+    /*if (verb.equalsIgnoreCase("post") || verb.equalsIgnoreCase("put")) {
  
       if (!request.getBody().isEmpty()) {
         try {
@@ -61,13 +81,14 @@ public class SetHighScore implements CustomCodeMethod {
           sb.append("Caught JSON Exception");
           e.printStackTrace();
         }
-      } else sb.append("Request body is empty");
+      } else sb.append("Request body is empty");*/
      
     // this is where we handle the case for `GET` and `DELETE` requests
-    } else sb.append( String.format("username: %s | score: %s", request.getParams().get("username"), request.getParams().get("score")) );
+    //} else sb.append( String.format("username: %s | score: %s", request.getParams().get("username"), request.getParams().get("score")) );
  
     map.put("message", sb.toString());
     map.put("verb", verb);
+    map.put("reqbody",reqb)
     return new ResponseToProcess(HttpURLConnection.HTTP_OK, map);
   }
  
