@@ -57,7 +57,7 @@ public class Product implements CustomCodeMethod {
     JSONArray old_statii=null;
     Hashset all_cats_hs=null;
     Hashset all_statii_hs=null;
-    Sring all_cats[]=null;
+    String all_cats[]=null;
  
     StringBuilder sb = new StringBuilder(verb + " =>");
  
@@ -69,7 +69,7 @@ public class Product implements CustomCodeMethod {
      	 
      	 //here we collect all the categories and statii both in the new object
        		if (!rb.isNull("categories")){
-           		JSONArray new_cats_ja= rb.getJSONArray("categories");
+           		 new_cats_ja= rb.getJSONArray("categories");
  				if(new_cats_ja.length()>0){
 					new_cats = new String[new_cats_ja.length()];
 					for(int i=0;i<new_cats_ja.length();i++){
@@ -80,7 +80,7 @@ public class Product implements CustomCodeMethod {
            		}
        		}
       		if (!rb.isNull("statii")){
-           		JSONArray new_statii_ja= rb.getJSONArray("statii");
+           		new_statii_ja= rb.getJSONArray("statii");
            		if(new_statii_ja.length()>0){
            			new_statii = new String[new_statii_ja.length()];
 					for(int i=0;i<new_statii_ja.length();i++){
