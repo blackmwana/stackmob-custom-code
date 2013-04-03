@@ -67,7 +67,8 @@ public class SetHighScore implements CustomCodeMethod {
     	
     	}
     	catch(JSONException e){
-    		
+          sb.append("Caught JSON Exception");
+          e.printStackTrace();
     	}
      } else sb.append("Request body is empty");
     /*if (verb.equalsIgnoreCase("post") || verb.equalsIgnoreCase("put")) {
