@@ -143,3 +143,9 @@
 {"ts":1365110909201,"patch":[[{"diffs":[[0,"                "],[1,"JSONObject jsonObj = new JSONObject(request.getBody());"],[0,"\n               "]],"start1":4282,"start2":4282,"length1":32,"length2":87}]],"length":8512,"saved":false}
 {"ts":1365111116568,"patch":[[{"diffs":[[0,"ovider;\n"],[1,"\n"],[0," \nimport"]],"start1":225,"start2":225,"length1":16,"length2":17}]],"length":8513,"saved":false}
 {"ts":1365111117953,"patch":[[{"diffs":[[0,"ovider;\n"],[1,"import com.stackmob.sdkapi.*;"],[0,"\n \nimpor"]],"start1":225,"start2":225,"length1":16,"length2":45}]],"length":8542,"saved":false}
+{"ts":1365111377666,"patch":[[{"diffs":[[0,"onseBody"],[1,","],[0,") throws"]],"start1":1185,"start2":1185,"length1":16,"length2":17}]],"length":8543,"saved":false}
+{"ts":1365111378937,"patch":[[{"diffs":[[0,"nseBody,"],[1,"SDKServiceProvider serviceProvider"],[0,") throws"]],"start1":1186,"start2":1186,"length1":16,"length2":50}]],"length":8577,"saved":false}
+{"ts":1365111397069,"patch":[[{"diffs":[[0,"responseBody"],[1,","],[0,");\n \t\t\t    }"]],"start1":4698,"start2":4698,"length1":24,"length2":25}]],"length":8578,"saved":false}
+{"ts":1365111398739,"patch":[[{"diffs":[[0,"nseBody,"],[1,"serviceProvider"],[0,");\n \t\t\t "]],"start1":4703,"start2":4703,"length1":16,"length2":31}]],"length":8593,"saved":false}
+{"ts":1365111405415,"patch":[[{"diffs":[[0,"responseBody"],[1,","],[0,");\n     \t\t  "]],"start1":6185,"start2":6185,"length1":24,"length2":25}]],"length":8594,"saved":false}
+{"ts":1365111406593,"patch":[[{"diffs":[[0,"nseBody,"],[1,"serviceProvider"],[0,");\n     "]],"start1":6190,"start2":6190,"length1":16,"length2":31}]],"length":8609,"saved":false}

@@ -44,7 +44,7 @@ public class Product implements CustomCodeMethod {
     }};
   }
   
-  void incrementAll(String[] new_cats,String[] new_statii,int x,String responseBody) throws InvalidSchemaException,DatastoreException {
+  void incrementAll(String[] new_cats,String[] new_statii,int x,String responseBody,SDKServiceProvider serviceProvider) throws InvalidSchemaException,DatastoreException {
         DataService dataService = serviceProvider.getDataService();   // get the StackMob datastore service and assemble the query
      	if(new_cats!=null&&new_cats.length>0){
  			//update cat
@@ -125,7 +125,7 @@ public class Product implements CustomCodeMethod {
                     }
  			    try{
                     
-                    incrementAll(new_cats,new_statii,1,responseBody);
+                    incrementAll(new_cats,new_statii,1,responseBody,serviceProvider);
  			    }
                 catch (InvalidSchemaException e) {
                     HashMap<String, String> errMap = new HashMap<String, String>();
@@ -151,7 +151,7 @@ public class Product implements CustomCodeMethod {
     		if (verb.equalsIgnoreCase("delete")){
      //decrement all
                  try{
-                    incrementAll(new_cats,new_statii,-1,responseBody);
+                    incrementAll(new_cats,new_statii,-1,responseBody,serviceProvider);
      		    }
                 catch (InvalidSchemaException e) {
                     HashMap<String, String> errMap = new HashMap<String, String>();
