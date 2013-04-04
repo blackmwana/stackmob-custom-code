@@ -120,7 +120,7 @@ public class Product implements CustomCodeMethod {
                 
                  if (!jsonObj.isNull("category_id")){  
                     new_cats = new String[1];
-                    new_cats[1]=jsonObj.getString("category_id"));
+                    new_cats[1]=jsonObj.getString("category_id");
                     }
  			    try{
                     
@@ -150,7 +150,7 @@ public class Product implements CustomCodeMethod {
     		if (verb.equalsIgnoreCase("delete")){
      //decrement all
                  try{
-                    incrementAll(new_cats,new_statii,-1,responseBo);
+                    incrementAll(new_cats,new_statii,-1,responseBody);
      		    }
                 catch (InvalidSchemaException e) {
                     HashMap<String, String> errMap = new HashMap<String, String>();
