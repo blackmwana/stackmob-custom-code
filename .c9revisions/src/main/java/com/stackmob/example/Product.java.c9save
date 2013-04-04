@@ -140,3 +140,6 @@
 {"ts":1365110576198,"patch":[[{"diffs":[[0,"response"],[1,"B"],[0,");\n     "]],"start1":6050,"start2":6050,"length1":16,"length2":17}]],"length":8455,"saved":false}
 {"ts":1365110577312,"patch":[[{"diffs":[[0,"esponseB"],[1,"ody"],[0,");\n     "]],"start1":6051,"start2":6051,"length1":16,"length2":19}]],"length":8458,"saved":false}
 {"ts":1365110717359,"patch":[[{"diffs":[[0,"ory_id\")"],[-1,")"],[0,";\n      "]],"start1":4457,"start2":4457,"length1":17,"length2":16}]],"length":8457,"saved":false}
+{"ts":1365110909201,"patch":[[{"diffs":[[0,"                "],[1,"JSONObject jsonObj = new JSONObject(request.getBody());"],[0,"\n               "]],"start1":4282,"start2":4282,"length1":32,"length2":87}]],"length":8512,"saved":false}
+{"ts":1365111116568,"patch":[[{"diffs":[[0,"ovider;\n"],[1,"\n"],[0," \nimport"]],"start1":225,"start2":225,"length1":16,"length2":17}]],"length":8513,"saved":false}
+{"ts":1365111117953,"patch":[[{"diffs":[[0,"ovider;\n"],[1,"import com.stackmob.sdkapi.*;"],[0,"\n \nimpor"]],"start1":225,"start2":225,"length1":16,"length2":45}]],"length":8542,"saved":false}

@@ -4,6 +4,7 @@ import com.stackmob.core.customcode.CustomCodeMethod;
 import com.stackmob.core.rest.ProcessedAPIRequest;
 import com.stackmob.core.rest.ResponseToProcess;
 import com.stackmob.sdkapi.SDKServiceProvider;
+import com.stackmob.sdkapi.*;
  
 import java.lang.Exception;
 import com.stackmob.core.InvalidSchemaException;
@@ -117,7 +118,7 @@ public class Product implements CustomCodeMethod {
            }
     		if (verb.equalsIgnoreCase("post")){
      //increment all    
-                
+                JSONObject jsonObj = new JSONObject(request.getBody());
                  if (!jsonObj.isNull("category_id")){  
                     new_cats = new String[1];
                     new_cats[1]=jsonObj.getString("category_id");
