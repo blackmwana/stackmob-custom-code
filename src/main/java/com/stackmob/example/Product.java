@@ -6,6 +6,8 @@ import com.stackmob.core.rest.ResponseToProcess;
 import com.stackmob.sdkapi.SDKServiceProvider;
  
 import java.lang.Exception;
+import com.stackmob.core.InvalidSchemaException;
+import com.stackmob.core.DatastoreException;
 import java.lang.String;
 import java.lang.StringBuilder;
 import java.net.HttpURLConnection;
@@ -153,7 +155,7 @@ public class Product implements CustomCodeMethod {
           e.printStackTrace();
     	}
     } else sb.append("Request body is empty");
-    void incrementAll(int x) throws InvalidSchemaException,DatastoreException,Exception {
+    void incrementAll(int x) throws InvalidSchemaException,DatastoreException {
         DataService dataService = serviceProvider.getDataService();   // get the StackMob datastore service and assemble the query
  		if(new_cats!=null&&new_cats.length>0){
  			//update cat

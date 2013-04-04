@@ -83,3 +83,7 @@
 {"ts":1365106837430,"patch":[[{"diffs":[[0,"isNull(\""],[-1,"username"],[1,"ca"],[0,"\")){  \n "]],"start1":3048,"start2":3048,"length1":24,"length2":18}]],"length":8227,"saved":false}
 {"ts":1365106839647,"patch":[[{"diffs":[[0,"Null(\"ca"],[1,"tegory_"],[0,"\")){  \n "]],"start1":3050,"start2":3050,"length1":16,"length2":23}]],"length":8234,"saved":false}
 {"ts":1365106841731,"patch":[[{"diffs":[[0,"ategory_"],[1,"id"],[0,"\")){  \n "]],"start1":3057,"start2":3057,"length1":16,"length2":18}]],"length":8236,"saved":false}
+{"ts":1365107690906,"patch":[[{"diffs":[[0,"ption,Ex"],[-1,"ception"],[0," {\n     "]],"start1":6164,"start2":6164,"length1":23,"length2":16}]],"length":8229,"saved":false}
+{"ts":1365107692756,"patch":[[{"diffs":[[0,"tion"],[-1,",Ex"],[0," {\n "]],"start1":6165,"start2":6165,"length1":11,"length2":8}]],"length":8226,"saved":false}
+{"ts":1365107728567,"patch":[[{"diffs":[[0,".Exception;\n"],[1,"\n"],[0,"import java."]],"start1":251,"start2":251,"length1":24,"length2":25}]],"length":8227,"saved":false}
+{"ts":1365107730407,"patch":[[{"diffs":[[0,"eption;\n"],[1,"import com.stackmob.core.InvalidSchemaException;\nimport com.stackmob.core.DatastoreException;"],[0,"\nimport "]],"start1":255,"start2":255,"length1":16,"length2":109}]],"length":8320,"saved":false}
