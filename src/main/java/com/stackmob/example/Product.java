@@ -91,7 +91,33 @@ public class Product implements CustomCodeMethod {
            //all_statii=all_statii_hs.toArray();
            }
     		if (verb.equalsIgnoreCase("post")){
-     //increment all
+     //increment all    
+     			DataService dataService = serviceProvider.getDataService();   // get the StackMob datastore service and assemble the query
+
+     			if(new_cats.length>0){
+     				//update cat
+     				 try {
+      List<SMUpdate> update = new ArrayList<SMUpdate>();
+      update.add(new SMIncrement("num_likes", intNumber));
+      SMObject incrementResult = dataService.updateObject("todo", "todo1", update); // todo schema with todo_id = todo1
+      responseBody = incrementResult.toString();
+    } catch (InvalidSchemaException e) {
+      HashMap<String, String> errMap = new HashMap<String, String>();
+      errMap.put("error", "invalid_schema");
+      errMap.put("detail", e.toString());
+      return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+    } catch (DatastoreException e) {
+      HashMap<String, String> errMap = new HashMap<String, String>();
+      errMap.put("error", "datastore_exception");
+      errMap.put("detail", e.toString());
+      return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+    } catch(Exception e) {
+      HashMap<String, String> errMap = new HashMap<String, String>();
+      errMap.put("error", "unknown");
+      errMap.put("detail", e.toString());
+      return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+    }
+     			}
     		}
     		if (verb.equalsIgnoreCase("put")){
      //get all values in new + existing versions and then compare
