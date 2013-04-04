@@ -42,6 +42,28 @@ public class Product implements CustomCodeMethod {
       add("category_id");
     }};
   }
+  
+  void incrementAll(String[] new_cats,String[] new_statii,int x,String responseBody) throws InvalidSchemaException,DatastoreException {
+        DataService dataService = serviceProvider.getDataService();   // get the StackMob datastore service and assemble the query
+     	if(new_cats!=null&&new_cats.length>0){
+ 			//update cat
+            for(int i=0;i<new_cats.length;i++){
+                List<SMUpdate> update = new ArrayList<SMUpdate>();
+                update.add(new SMIncrement("count", x));
+                SMObject incrementResult = dataService.updateObject("category",new_cats[i], update); // todo schema with todo_id = todo1
+                responseBody = incrementResult.toString();
+            }
+ 		}
+        if(new_statii!=null&&new_statii.length>0){
+ 			//update statii
+            for(int i=0;i<new_statii.length;i++){
+                List<SMUpdate> update = new ArrayList<SMUpdate>();
+                update.add(new SMIncrement("count", x));
+                SMObject incrementResult = dataService.updateObject("category",new_statii[i], update); // todo schema with todo_id = todo1
+                responseBody = incrementResult.toString();
+            }
+ 		}
+    }
  
   @Override
   public ResponseToProcess execute(ProcessedAPIRequest request, SDKServiceProvider serviceProvider) {
@@ -102,7 +124,7 @@ public class Product implements CustomCodeMethod {
                     }
  			    try{
                     
-                    incrementAll(1);
+                    incrementAll(new_cats,new_statii,1,responseBody);
  			    }
                 catch (InvalidSchemaException e) {
                     HashMap<String, String> errMap = new HashMap<String, String>();
@@ -128,7 +150,7 @@ public class Product implements CustomCodeMethod {
     		if (verb.equalsIgnoreCase("delete")){
      //decrement all
                  try{
-                    incrementAll(-1);
+                    incrementAll(new_cats,new_statii,-1,responseBo);
      		    }
                 catch (InvalidSchemaException e) {
                     HashMap<String, String> errMap = new HashMap<String, String>();
@@ -155,27 +177,8 @@ public class Product implements CustomCodeMethod {
           e.printStackTrace();
     	}
     } else sb.append("Request body is empty");
-    void incrementAll(int x) throws InvalidSchemaException,DatastoreException {
-        DataService dataService = serviceProvider.getDataService();   // get the StackMob datastore service and assemble the query
- 		if(new_cats!=null&&new_cats.length>0){
- 			//update cat
-            for(int i=0;i<new_cats.length;i++){
-                List<SMUpdate> update = new ArrayList<SMUpdate>();
-                update.add(new SMIncrement("count", x));
-                SMObject incrementResult = dataService.updateObject("category",new_cats[i], update); // todo schema with todo_id = todo1
-                responseBody = incrementResult.toString();
-            }
- 		}
-        if(new_statii!=null&&new_statii.length>0){
- 			//update statii
-            for(int i=0;i<new_statii.length;i++){
-                List<SMUpdate> update = new ArrayList<SMUpdate>();
-                update.add(new SMIncrement("count", x));
-                SMObject incrementResult = dataService.updateObject("category",new_statii[i], update); // todo schema with todo_id = todo1
-                responseBody = incrementResult.toString();
-            }
- 		}
-    }
+    
+    
     /*if (verb.equalsIgnoreCase("post") || verb.equalsIgnoreCase("put")) {
  
       if (!request.getBody().isEmpty()) {
