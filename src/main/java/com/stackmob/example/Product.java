@@ -121,7 +121,7 @@ public class Product implements CustomCodeMethod {
                 JSONObject jsonObj = new JSONObject(request.getBody());
                  if (!jsonObj.isNull("category_id")){  
                     new_cats = new String[1];
-                    new_cats[]=jsonObj.getString("category_id");
+                    new_cats[0]=jsonObj.getString("category_id");
                     }
  			    try{
                     
