@@ -37,7 +37,7 @@ public class Product implements CustomCodeMethod {
     return new ArrayList<String>() {{
       //add("username");
       //add("score");
-      add("product");
+//      add("product");
     }};
   }
  
