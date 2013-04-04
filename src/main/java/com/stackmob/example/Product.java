@@ -75,7 +75,7 @@ public class Product implements CustomCodeMethod {
     String verb = request.getVerb().toString();
     String reqb=null;
     JSONArray new_cats_ja=null;
-    String new_cats[];
+    String new_cats[]=null;
     JSONArray new_statii_ja=null;
     String new_statii[] =null;
     JSONArray old_cats;
