@@ -37,7 +37,7 @@ public class Product implements CustomCodeMethod {
     return new ArrayList<String>() {{
       //add("username");
       //add("score");
-//      add("product");
+      add("category_id");
     }};
   }
  
@@ -50,19 +50,20 @@ public class Product implements CustomCodeMethod {
     String verb = request.getVerb().toString();
     String reqb=null;
     JSONArray new_cats_ja=null;
-    String new_cats[] =null;
+    String new_cats[];
     JSONArray new_statii_ja=null;
     String new_statii[] =null;
-    JSONArray old_cats=null;
+    JSONArray old_cats;
     JSONArray old_statii=null;
     HashSet all_cats_hs=null;
     HashSet all_statii_hs=null;
     String all_cats[]=null;
+    String responseBody = "";
  
     StringBuilder sb = new StringBuilder(verb + " =>");
  
     // this is where we handle the special case for `POST` and `PUT` requests
-     if (!request.getBody().isEmpty()) {
+    if (!request.getBody().isEmpty()) {
      	try{
      		JSONObject rb= new JSONObject(request.getBody());
      	 	reqb = rb.toString();
@@ -92,38 +93,58 @@ public class Product implements CustomCodeMethod {
            }
     		if (verb.equalsIgnoreCase("post")){
      //increment all    
-     			DataService dataService = serviceProvider.getDataService();   // get the StackMob datastore service and assemble the query
-
-     			if(new_cats.length>0){
-     				//update cat
-     				 try {
-      List<SMUpdate> update = new ArrayList<SMUpdate>();
-      update.add(new SMIncrement("num_likes", intNumber));
-      SMObject incrementResult = dataService.updateObject("todo", "todo1", update); // todo schema with todo_id = todo1
-      responseBody = incrementResult.toString();
-    } catch (InvalidSchemaException e) {
-      HashMap<String, String> errMap = new HashMap<String, String>();
-      errMap.put("error", "invalid_schema");
-      errMap.put("detail", e.toString());
-      return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
-    } catch (DatastoreException e) {
-      HashMap<String, String> errMap = new HashMap<String, String>();
-      errMap.put("error", "datastore_exception");
-      errMap.put("detail", e.toString());
-      return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
-    } catch(Exception e) {
-      HashMap<String, String> errMap = new HashMap<String, String>();
-      errMap.put("error", "unknown");
-      errMap.put("detail", e.toString());
-      return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
-    }
-     			}
+                
+                 if (!jsonObj.isNull("category_id")){  
+                    new_cats = new String[1];
+                    new_cats[1]=jsonObj.getString("category_id"));
+                    }
+ 			    try{
+                    
+                    incrementAll(1);
+ 			    }
+                catch (InvalidSchemaException e) {
+                    HashMap<String, String> errMap = new HashMap<String, String>();
+                    errMap.put("error", "invalid_schema");
+                    errMap.put("detail", e.toString());
+                    return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+                } catch (DatastoreException e) {
+                    HashMap<String, String> errMap = new HashMap<String, String>();
+                    errMap.put("error", "datastore_exception");
+                    errMap.put("detail", e.toString());
+                    return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+                } catch(Exception e) {
+                    HashMap<String, String> errMap = new HashMap<String, String>();
+                    errMap.put("error", "unknown");
+                    errMap.put("detail", e.toString());
+                    return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+                }
+                 //save item
     		}
     		if (verb.equalsIgnoreCase("put")){
      //get all values in new + existing versions and then compare
     		}
     		if (verb.equalsIgnoreCase("delete")){
      //decrement all
+                 try{
+                    incrementAll(-1);
+     		    }
+                catch (InvalidSchemaException e) {
+                    HashMap<String, String> errMap = new HashMap<String, String>();
+                    errMap.put("error", "invalid_schema");
+                    errMap.put("detail", e.toString());
+                    return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+                } catch (DatastoreException e) {
+                    HashMap<String, String> errMap = new HashMap<String, String>();
+                    errMap.put("error", "datastore_exception");
+                    errMap.put("detail", e.toString());
+                    return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+                } catch(Exception e) {
+                    HashMap<String, String> errMap = new HashMap<String, String>();
+                    errMap.put("error", "unknown");
+                    errMap.put("detail", e.toString());
+                    return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+                }
+                 //save item
     		}
     	
     	}
@@ -131,7 +152,28 @@ public class Product implements CustomCodeMethod {
           sb.append("Caught JSON Exception");
           e.printStackTrace();
     	}
-     } else sb.append("Request body is empty");
+    } else sb.append("Request body is empty");
+    void incrementAll(int x) throws InvalidSchemaException,DatastoreException,Exception {
+        DataService dataService = serviceProvider.getDataService();   // get the StackMob datastore service and assemble the query
+ 		if(new_cats!=null&&new_cats.length>0){
+ 			//update cat
+            for(int i=0;i<new_cats.length;i++){
+                List<SMUpdate> update = new ArrayList<SMUpdate>();
+                update.add(new SMIncrement("count", x));
+                SMObject incrementResult = dataService.updateObject("category",new_cats[i], update); // todo schema with todo_id = todo1
+                responseBody = incrementResult.toString();
+            }
+ 		}
+        if(new_statii!=null&&new_statii.length>0){
+ 			//update statii
+            for(int i=0;i<new_statii.length;i++){
+                List<SMUpdate> update = new ArrayList<SMUpdate>();
+                update.add(new SMIncrement("count", x));
+                SMObject incrementResult = dataService.updateObject("category",new_statii[i], update); // todo schema with todo_id = todo1
+                responseBody = incrementResult.toString();
+            }
+ 		}
+    }
     /*if (verb.equalsIgnoreCase("post") || verb.equalsIgnoreCase("put")) {
  
       if (!request.getBody().isEmpty()) {
@@ -148,9 +190,10 @@ public class Product implements CustomCodeMethod {
     // this is where we handle the case for `GET` and `DELETE` requests
     //} else sb.append( String.format("username: %s | score: %s", request.getParams().get("username"), request.getParams().get("score")) );
  
-    map.put("message", sb.toString());
-    map.put("verb", verb);
-    map.put("reqbody",reqb);
+    //map.put("message", sb.toString());
+    //map.put("verb", verb);
+    //map.put("reqbody",reqb);
+    map.put("response_body", responseBody);
     return new ResponseToProcess(HttpURLConnection.HTTP_OK, map);
   }
  
