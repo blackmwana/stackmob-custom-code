@@ -40,7 +40,7 @@ public class Product implements CustomCodeMethod {
     return new ArrayList<String>() {{
       //add("username");
       //add("score");
-      add("category_id");
+      add("product_id");
     }};
   }
   
@@ -52,7 +52,7 @@ public class Product implements CustomCodeMethod {
                 List<SMUpdate> update = new ArrayList<SMUpdate>();
                 update.add(new SMIncrement("count", x));
                 SMObject incrementResult = dataService.updateObject("category",new_cats[i], update); // todo schema with todo_id = todo1
-                responseBody = incrementResult.toString();
+                //responseBody = incrementResult.toString();
             }
  		}
         if(new_statii!=null&&new_statii.length>0){
@@ -60,8 +60,8 @@ public class Product implements CustomCodeMethod {
             for(int i=0;i<new_statii.length;i++){
                 List<SMUpdate> update = new ArrayList<SMUpdate>();
                 update.add(new SMIncrement("count", x));
-                SMObject incrementResult = dataService.updateObject("category",new_statii[i], update); // todo schema with todo_id = todo1
-                responseBody = incrementResult.toString();
+                SMObject incrementResult = dataService.updateObject("status",new_statii[i], update); // todo schema with todo_id = todo1
+            //    responseBody = incrementResult.toString();
             }
  		}
     }
@@ -105,8 +105,8 @@ public class Product implements CustomCodeMethod {
 			//all_cats=all_cats_hs.toArray();														}
            		}
        		}
-      		if (!rb.isNull("statii")){
-           		new_statii_ja= rb.getJSONArray("statii");
+      		if (!rb.isNull("status")){
+           		new_statii_ja= rb.getJSONArray("status");
            		if(new_statii_ja.length()>0){
            			new_statii = new String[new_statii_ja.length()];
 					for(int i=0;i<new_statii_ja.length();i++){
@@ -118,11 +118,11 @@ public class Product implements CustomCodeMethod {
            }
     		if (verb.equalsIgnoreCase("post")){
      //increment all    
-                JSONObject jsonObj = new JSONObject(request.getBody());
-                 if (!jsonObj.isNull("category_id")){  
-                    new_cats = new String[1];
-                    new_cats[0]=jsonObj.getString("category_id");
-                    }
+                //JSONObject jsonObj = new JSONObject(request.getBody());
+                //if (!jsonObj.isNull("category_id")){  
+                    //new_cats = new String[1];
+                    //new_cats[0]=jsonObj.getString("category_id");
+                //}
  			    try{
                     
                     incrementAll(new_cats,new_statii,1,responseBody,serviceProvider);
@@ -147,6 +147,18 @@ public class Product implements CustomCodeMethod {
     		}
     		if (verb.equalsIgnoreCase("put")){
      //get all values in new + existing versions and then compare
+                JSONObject jsonObj = new JSONObject(request.getBody());
+                if (!jsonObj.isNull("product_id")){  
+                    //new_cats = new String[1];
+                    //new_cats[0]=jsonObj.getString("category_id");
+                    //
+                    DataService ds = serviceProvider.getDataService();
+                    List<SMCondition> query = new ArrayList<SMCondition>();
+                    query.put(new SMEquals("product_id", new SMString(jsonObj.getString("product_id")));
+                    List<SMObject> results = ds.readObjects("product", query);
+                    SMObject product= results.get(0);
+                    responseBody = product.getValue().get("categories").toString();
+                }
     		}
     		if (verb.equalsIgnoreCase("delete")){
      //decrement all
