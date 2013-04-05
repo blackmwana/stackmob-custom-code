@@ -158,7 +158,9 @@ public class Product implements CustomCodeMethod {
                         query.add(new SMEquals("product_id", new SMString(jsonObj.getString("product_id"))));
                         List<SMObject> results = ds.readObjects("product", query);
                         SMObject product= results.get(0);
-                        responseBody = product.getValue().get("categories").toString();
+                        //responseBody = product.getValue().get("categories").toString();
+                        String[] cats =(String[])product.getValue.().get("categories");
+                        responseBody = cats.length;
          		    }
                     catch (InvalidSchemaException e) {
                         HashMap<String, String> errMap = new HashMap<String, String>();
