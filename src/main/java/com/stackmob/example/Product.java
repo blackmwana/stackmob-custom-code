@@ -123,6 +123,7 @@ public class Product implements CustomCodeMethod {
                     //new_cats = new String[1];
                     //new_cats[0]=jsonObj.getString("category_id");
                 //}
+                 //save item
  			    try{
                     
                     incrementAll(new_cats,new_statii,1,responseBody,serviceProvider);
@@ -143,7 +144,6 @@ public class Product implements CustomCodeMethod {
                     errMap.put("detail", e.toString());
                     return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
                 }
-                 //save item
     		}
     		if (verb.equalsIgnoreCase("put")){
      //get all values in new + existing versions and then compare
@@ -152,12 +152,30 @@ public class Product implements CustomCodeMethod {
                     //new_cats = new String[1];
                     //new_cats[0]=jsonObj.getString("category_id");
                     //
-                    DataService ds = serviceProvider.getDataService();
-                    List<SMCondition> query = new ArrayList<SMCondition>();
-                    query.add(new SMEquals("product_id", new SMString(jsonObj.getString("product_id"))));
-                    List<SMObject> results = ds.readObjects("product", query);
-                    SMObject product= results.get(0);
-                    responseBody = product.getValue().get("categories").toString();
+                    try{
+                        DataService ds = serviceProvider.getDataService();
+                        List<SMCondition> query = new ArrayList<SMCondition>();
+                        query.add(new SMEquals("product_id", new SMString(jsonObj.getString("product_id"))));
+                        List<SMObject> results = ds.readObjects("product", query);
+                        SMObject product= results.get(0);
+                        responseBody = product.getValue().get("categories").toString();
+         		    }
+                    catch (InvalidSchemaException e) {
+                        HashMap<String, String> errMap = new HashMap<String, String>();
+                        errMap.put("error", "invalid_schema");
+                        errMap.put("detail", e.toString());
+                        return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+                    } catch (DatastoreException e) {
+                        HashMap<String, String> errMap = new HashMap<String, String>();
+                        errMap.put("error", "datastore_exception");
+                        errMap.put("detail", e.toString());
+                        return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+                    } catch(Exception e) {
+                        HashMap<String, String> errMap = new HashMap<String, String>();
+                        errMap.put("error", "unknown");
+                        errMap.put("detail", e.toString());
+                        return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+                    }
                 }
     		}
     		if (verb.equalsIgnoreCase("delete")){
@@ -183,7 +201,6 @@ public class Product implements CustomCodeMethod {
                 }
                  //save item
     		}
-    	
     	}
     	catch(JSONException e){
           sb.append("Caught JSON Exception");
