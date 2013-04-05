@@ -256,3 +256,4 @@
 {"ts":1365159137247,"patch":[[{"diffs":[[0,"= produc"],[-1,"us"],[1,"t"],[0,"erObject"]],"start1":6728,"start2":6728,"length1":18,"length2":17}]],"length":9380,"saved":false}
 {"ts":1365159140107,"patch":[[{"diffs":[[0,"duct"],[-1,"erObject"],[0,".get"]],"start1":6733,"start2":6733,"length1":16,"length2":8}]],"length":9372,"saved":false}
 {"contributors":[],"silentsave":true,"ts":1365178149453,"patch":[[{"diffs":[[0,"t_id\")))"],[1,")"],[0,";\n      "]],"start1":6552,"start2":6552,"length1":16,"length2":17}]],"length":9373,"saved":false}
+{"ts":1365179431528,"patch":[[{"diffs":[[0,"  query."],[-1,"put"],[1,"add"],[0,"(new SME"]],"start1":6475,"start2":6475,"length1":19,"length2":19}]],"length":9373,"saved":false}

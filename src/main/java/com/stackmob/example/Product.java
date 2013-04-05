@@ -154,7 +154,7 @@ public class Product implements CustomCodeMethod {
                     //
                     DataService ds = serviceProvider.getDataService();
                     List<SMCondition> query = new ArrayList<SMCondition>();
-                    query.put(new SMEquals("product_id", new SMString(jsonObj.getString("product_id"))));
+                    query.add(new SMEquals("product_id", new SMString(jsonObj.getString("product_id"))));
                     List<SMObject> results = ds.readObjects("product", query);
                     SMObject product= results.get(0);
                     responseBody = product.getValue().get("categories").toString();
