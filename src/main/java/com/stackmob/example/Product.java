@@ -159,7 +159,7 @@ public class Product implements CustomCodeMethod {
                         List<SMObject> results = ds.readObjects("product", query);
                         SMObject product= results.get(0);
                         //responseBody = product.getValue().get("categories").toString();
-                        String[] cats =(String[])product.getValue.().get("categories");
+                        String[] cats =(String[])product.getValue().get("categories");
                         responseBody = cats.length;
          		    }
                     catch (InvalidSchemaException e) {
