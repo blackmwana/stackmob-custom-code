@@ -75,15 +75,15 @@ public class Product implements CustomCodeMethod {
  
     Map<String, Object> map = new HashMap<String, Object>();
     String verb = request.getVerb().toString();
-    String reqb=null;
-    JSONArray new_cats_ja=null;
-    String new_cats[]=null;
-    JSONArray new_statii_ja=null;
-    String new_statii[] =null;
+    String reqb = null;
+    JSONArray new_cats_ja = null;
+    String new_cats[] = null;
+    JSONArray new_statii_ja = null;
+    String new_statii[] = null;
     JSONArray old_cats;
-    JSONArray old_statii=null;
-    HashSet all_cats_hs=null;
-    HashSet all_statii_hs=null;
+    JSONArray old_statii = null;
+    HashSet all_cats_hs = new HashSet<String>();
+    HashSet all_statii_hs = new HashSet<String>();
     String all_cats[]=null;
     String responseBody = "";
  
@@ -94,8 +94,7 @@ public class Product implements CustomCodeMethod {
      	try{
      		JSONObject rb= new JSONObject(request.getBody());
      	 	reqb = rb.toString();
-     	    all_cats_hs= new HashSet<String>();
-            all_statii_hs= new HashSet<String>();
+     	    
      	 //here we collect all the categories and statii both in the new object
        		if (!rb.isNull("categories")){
            		 new_cats_ja= rb.getJSONArray("categories");
@@ -181,7 +180,7 @@ public class Product implements CustomCodeMethod {
                                 SMString stringValue = (SMString)smString.getValue();
                                 //put old values to hashset
                                 //all_cats_hs.add(new String(stringValue));
-                                all_cats_hs.add(new String(smString.toString()));
+                                all_cats_hs.add(smString.toString());
                             }
                             List<SMValue> statii = (List<SMValue>)(product.getValue().get("status").getValue());
                             for (SMValue smString : statii) {
