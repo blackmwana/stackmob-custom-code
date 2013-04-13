@@ -38,20 +38,20 @@ public class Product implements CustomCodeMethod {
   @Override
   public List<String> getParams() {
     return new ArrayList<String>() {{
-      //add("username");
-      //add("score");
-      add("product_id");
+        //add("username");
+        //add("score");
+        add("product_id");
     }};
   }
   
-  void incrementAll(String[] new_cats,String[] new_statii,int x,String responseBody,SDKServiceProvider serviceProvider) throws InvalidSchemaException,DatastoreException {
+  private void incrementAll(String[] new_cats,String[] new_statii,int x,String responseBody,SDKServiceProvider serviceProvider) throws InvalidSchemaException,DatastoreException {
         DataService dataService = serviceProvider.getDataService();   // get the StackMob datastore service and assemble the query
      	if(new_cats!=null&&new_cats.length>0){
  			//update cat
             for(int i=0;i<new_cats.length;i++){
                 List<SMUpdate> update = new ArrayList<SMUpdate>();
                 update.add(new SMIncrement("count", x));
-                SMObject incrementResult = dataService.updateObject("category",new_cats[i], update); // todo schema with todo_id = todo1
+                SMObject incrementResult = dataService.updateObject("category",new_cats[i], update);  
                 //responseBody = incrementResult.toString();
             }
  		}
@@ -60,12 +60,14 @@ public class Product implements CustomCodeMethod {
             for(int i=0;i<new_statii.length;i++){
                 List<SMUpdate> update = new ArrayList<SMUpdate>();
                 update.add(new SMIncrement("count", x));
-                SMObject incrementResult = dataService.updateObject("status",new_statii[i], update); // todo schema with todo_id = todo1
+                SMObject incrementResult = dataService.updateObject("status",new_statii[i], update);  
             //    responseBody = incrementResult.toString();
             }
  		}
     }
- 
+  private void saveProduct(){
+      
+  }
   @Override
   public ResponseToProcess execute(ProcessedAPIRequest request, SDKServiceProvider serviceProvider) {
     // this logger can be used to log any activity and you can view the log at https://dashboard.stackmob.com/data/logs
@@ -92,7 +94,8 @@ public class Product implements CustomCodeMethod {
      	try{
      		JSONObject rb= new JSONObject(request.getBody());
      	 	reqb = rb.toString();
-     	 
+     	    all_cats_hs= new HashSet<String>();
+            all_statii_hs= new HashSet<String>();
      	 //here we collect all the categories and statii both in the new object
        		if (!rb.isNull("categories")){
            		 new_cats_ja= rb.getJSONArray("categories");
@@ -100,6 +103,9 @@ public class Product implements CustomCodeMethod {
 					new_cats = new String[new_cats_ja.length()];
 					for(int i=0;i<new_cats_ja.length();i++){
 						new_cats[i] = new_cats_ja.getString(i);//
+                        if(verb.equalsIgnoreCase("put")){
+                            all_cats_hs.add(new String(new_cats_ja.getString(i)));// for comparisonlater//possible error
+                        }
 				//all_cats_hs.add(new_cats_ja.getString(i));
 					}	
 			//all_cats=all_cats_hs.toArray();														}
@@ -112,12 +118,15 @@ public class Product implements CustomCodeMethod {
 					for(int i=0;i<new_statii_ja.length();i++){
 						new_statii[i] = new_statii_ja.getString(i);
 						//all_statii_hs.add(new_statii_ja.getString(i));
+                        if(verb.equalsIgnoreCase("put")){
+                            all_statii_hs.add(new String(new_statii_ja.getString(i)));// for comparisonlater//possible error
+                        }
 					}
          		}
            //all_statii=all_statii_hs.toArray();
            }
     		if (verb.equalsIgnoreCase("post")){
-     //increment all    
+                //increment all    
                 //JSONObject jsonObj = new JSONObject(request.getBody());
                 //if (!jsonObj.isNull("category_id")){  
                     //new_cats = new String[1];
@@ -144,22 +153,53 @@ public class Product implements CustomCodeMethod {
                     errMap.put("detail", e.toString());
                     return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
                 }
+                //create object
     		}
     		if (verb.equalsIgnoreCase("put")){
+                
      //get all values in new + existing versions and then compare
                 JSONObject jsonObj = new JSONObject(request.getBody());
                 if (!jsonObj.isNull("product_id")){  
-                    //new_cats = new String[1];
-                    //new_cats[0]=jsonObj.getString("category_id");
+                    
+                    
+                    //get old copy of obj//done
+                    //add old values of cats/statii//done
+                    //add new values of cat/statii//done
+                    //start comparing
+                    
                     //
                     try{
                         DataService ds = serviceProvider.getDataService();
                         List<SMCondition> query = new ArrayList<SMCondition>();
                         query.add(new SMEquals("product_id", new SMString(jsonObj.getString("product_id"))));
                         List<SMObject> results = ds.readObjects("product", query);
-                        SMObject product= results.get(0);
-                        //responseBody = product.getValue().get("categories").toString();
-                        String[] cats =(String[])product.getValue().get("categories");
+                        if (results!=null && results.size()==1){
+                            SMObject product= results.get(0);
+                            //getting old stats and cats
+                            List<SMValue> categories = (List<SMValue>)(jsonObj.getValue().get("categories").getValue());
+                            for (SMValue smString : categories) {
+                                SMString stringValue = (SMString)smString.getValue();
+                                //put old values to hashset
+                                all_cats_hs.add(stringValue);
+                            }
+                            List<SMValue> statii = (List<SMValue>)(jsonObj.getValue().get("status").getValue());
+                            for (SMValue smString : statii) {
+                                SMString stringValue = (SMString)smString.getValue();
+                                //put old values to hashset
+                                all_statii_hs.add(stringValue);
+                            }   
+                            for (String s : all_cats_hs) {
+                                //System.out.println(s);
+                            }
+                            for (String s : all_statii_hs) {
+                                //System.out.println(s);
+                            }
+                        }
+                        else{
+                            responseBody="product not found";
+                        }
+                        //compare and save
+                        
                         responseBody = cats.length;
          		    }
                     catch (InvalidSchemaException e) {
@@ -201,8 +241,9 @@ public class Product implements CustomCodeMethod {
                     errMap.put("detail", e.toString());
                     return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
                 }
-                 //save item
+                 //delete item
     		}
+            
     	}
     	catch(JSONException e){
           sb.append("Caught JSON Exception");
@@ -235,3 +276,4 @@ public class Product implements CustomCodeMethod {
   }
  
 }
+

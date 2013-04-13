@@ -4,10 +4,12 @@ public class Hi {
    
     int[] intsx =new int[2];
     public static void main(String[] args) {
-        String[] s=null;
-        s= new String[1];
-        s[0]="love";
-        System.out.println("Hello, World"+s[0]);
+        String joe=null;
+        String[] s= {"2","3","1","0"};//new String[4];
+        String[] t= {"2","3","1","0"};//new String[4];
+        //s[0]="love";
+        joe="love";
+        System.out.println("Hello, World: "+Arrays.equals(s,t)+" "+joe);
     }
 
 }
