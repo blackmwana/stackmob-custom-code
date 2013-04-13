@@ -82,7 +82,7 @@ public class Product implements CustomCodeMethod {
     JSONArray new_statii_ja = null;
     String new_statii[] = null;
     String old_cats[]=null;
-    String old_statii = null;
+    String old_statii[] = null;
     HashSet all_cats_hs = new HashSet<String>();
     HashSet all_statii_hs = new HashSet<String>();
     //String all_cats[]=null;

@@ -685,3 +685,4 @@
 {"ts":1365892029528,"patch":[[{"diffs":[[0,"ll;\n    "],[-1,"JSONArray"],[0," old_sta"]],"start1":2951,"start2":2951,"length1":25,"length2":16}]],"length":13585,"saved":false}
 {"ts":1365892032362,"patch":[[{"diffs":[[0,"]=null;\n    "],[1,"String"],[0," old_statii "]],"start1":2947,"start2":2947,"length1":24,"length2":30}]],"length":13591,"saved":false}
 {"ts":1365892048642,"patch":[[{"diffs":[[0,"ing>();\n    "],[1,"//"],[0,"String all_c"]],"start1":3077,"start2":3077,"length1":24,"length2":26}]],"length":13593,"saved":false}
+{"ts":1365892153810,"patch":[[{"diffs":[[0,"g old_statii"],[1,"[]"],[0," = null;\n   "]],"start1":2964,"start2":2964,"length1":24,"length2":26}]],"length":13595,"saved":false}
