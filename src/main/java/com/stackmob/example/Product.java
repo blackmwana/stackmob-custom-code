@@ -81,11 +81,11 @@ public class Product implements CustomCodeMethod {
     String new_cats[] = null;
     JSONArray new_statii_ja = null;
     String new_statii[] = null;
-    JSONArray old_cats;
-    JSONArray old_statii = null;
+    String old_cats[]=null;
+    String old_statii = null;
     HashSet all_cats_hs = new HashSet<String>();
     HashSet all_statii_hs = new HashSet<String>();
-    String all_cats[]=null;
+    //String all_cats[]=null;
     String responseBody = "";
  
     StringBuilder sb = new StringBuilder(verb + " =>");
