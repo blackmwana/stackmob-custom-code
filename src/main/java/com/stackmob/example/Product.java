@@ -176,14 +176,14 @@ public class Product implements CustomCodeMethod {
                         if (results!=null && results.size()==1){
                             SMObject product= results.get(0);
                             //getting old stats and cats
-                            List<SMValue> categories = (List<SMValue>)(jsonObj.getValue().get("categories").getValue());
+                            List<SMValue> categories = (List<SMValue>)(product.getValue().get("categories").getValue());
                             for (SMValue smString : categories) {
                                 SMString stringValue = (SMString)smString.getValue();
                                 //put old values to hashset
                                 //all_cats_hs.add(new String(stringValue));
-                                all_catsi_hs.add(smString.toString());
+                                all_cats_hs.add(smString.toString());
                             }
-                            List<SMValue> statii = (List<SMValue>)(jsonObj.getValue().get("status").getValue());
+                            List<SMValue> statii = (List<SMValue>)(product.getValue().get("status").getValue());
                             for (SMValue smString : statii) {
                                 //SMString stringValue = (SMString)smString.getValue();
                                 //put old values to hashset
