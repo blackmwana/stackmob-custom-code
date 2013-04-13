@@ -673,3 +673,7 @@
 {"ts":1365891645533,"patch":[[{"diffs":[[0,"                "],[1,"//"],[0,"\n               "]],"start1":8226,"start2":8226,"length1":32,"length2":34}]],"length":13565,"saved":false}
 {"ts":1365891651257,"patch":[[{"diffs":[[0,"               /"],[-1,"/"],[0,"\n               "]],"start1":8227,"start2":8227,"length1":33,"length2":32}]],"length":13564,"saved":false}
 {"ts":1365891652541,"patch":[[{"diffs":[[0,"       /"],[1,"/"],[0,"\n       "]],"start1":8235,"start2":8235,"length1":16,"length2":17}]],"length":13565,"saved":false}
+{"ts":1365891768175,"patch":[[{"diffs":[[0,"Connection;\n"],[1,"\n"],[0,"import java."]],"start1":467,"start2":467,"length1":24,"length2":25}]],"length":13566,"saved":false}
+{"ts":1365891770865,"patch":[[{"diffs":[[0,"ection;\n"],[1,"import"],[0,"\nimport "]],"start1":471,"start2":471,"length1":16,"length2":22}]],"length":13572,"saved":false}
+{"ts":1365891772964,"patch":[[{"diffs":[[0,";\nimport"],[1," java.util.Arrays"],[0,"\nimport "]],"start1":477,"start2":477,"length1":16,"length2":33}]],"length":13589,"saved":false}
+{"ts":1365891775259,"patch":[[{"diffs":[[0,"l.Arrays"],[1,";"],[0,"\nimport "]],"start1":494,"start2":494,"length1":16,"length2":17}]],"length":13590,"saved":false}
