@@ -200,7 +200,8 @@ public class Product implements CustomCodeMethod {
                             for (Object s : all_cats_hs) {
                                 //System.out.println(s);
                                 //responseBody+=s;
-                                if(Arrays.asList(new_cats).contains(s)){
+                                
+                                if(new_cats!=null && Arrays.asList(new_cats).contains(s)){
                                     
                                 }
                             }
