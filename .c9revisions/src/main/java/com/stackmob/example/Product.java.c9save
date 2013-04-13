@@ -617,3 +617,5 @@
 {"ts":1365889612019,"patch":[[{"diffs":[[0,"sponseBody+="],[-1,"(String)"],[0,"s;\n         "]],"start1":8703,"start2":8703,"length1":32,"length2":24}]],"length":13054,"saved":false}
 {"ts":1365889618157,"patch":[[{"diffs":[[0,"dy+="],[-1,"(String)"],[0,"s;\n "]],"start1":8908,"start2":8908,"length1":16,"length2":8}]],"length":13046,"saved":false}
 {"ts":1365890012437,"patch":[[{"diffs":[[0,"        "],[1,"//"],[0," SMStrin"]],"start1":7736,"start2":7736,"length1":16,"length2":18}]],"length":13048,"saved":false}
+{"ts":1365890172522,"patch":[[{"diffs":[[0,"_hs.add("],[-1,"new String("],[0,"smString"]],"start1":7977,"start2":7977,"length1":27,"length2":16}]],"length":13037,"saved":false}
+{"ts":1365890177880,"patch":[[{"diffs":[[0,"tring())"],[-1,")"],[0,";\n      "]],"start1":7997,"start2":7997,"length1":17,"length2":16}]],"length":13036,"saved":false}
