@@ -181,7 +181,7 @@ public class Product implements CustomCodeMethod {
                                 SMString stringValue = (SMString)smString.getValue();
                                 //put old values to hashset
                                 //all_cats_hs.add(new String(stringValue));
-                                all_cats_hs.add(smString.toString());
+                                all_cats_hs.add(new String(smString.toString()));
                             }
                             List<SMValue> statii = (List<SMValue>)(product.getValue().get("status").getValue());
                             for (SMValue smString : statii) {
