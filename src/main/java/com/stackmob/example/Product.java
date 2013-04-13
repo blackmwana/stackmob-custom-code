@@ -180,13 +180,13 @@ public class Product implements CustomCodeMethod {
                             for (SMValue smString : categories) {
                                 SMString stringValue = (SMString)smString.getValue();
                                 //put old values to hashset
-                                all_cats_hs.add(stringValue);
+                                all_cats_hs.add(new String(stringValue));
                             }
                             List<SMValue> statii = (List<SMValue>)(jsonObj.getValue().get("status").getValue());
                             for (SMValue smString : statii) {
                                 SMString stringValue = (SMString)smString.getValue();
                                 //put old values to hashset
-                                all_statii_hs.add(stringValue);
+                                all_statii_hs.add(new String(stringValue));
                             }   
                             for (String s : all_cats_hs) {
                                 //System.out.println(s);
@@ -200,7 +200,7 @@ public class Product implements CustomCodeMethod {
                         }
                         //compare and save
                         
-                        responseBody = cats.length;
+                        //responseBody = cats.length;
          		    }
                     catch (InvalidSchemaException e) {
                         HashMap<String, String> errMap = new HashMap<String, String>();

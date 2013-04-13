@@ -526,3 +526,10 @@
 {"ts":1365883964746,"patch":[[{"diffs":[[0," : all_s"],[1,"tatii"],[0,"_hs) {\n "]],"start1":8590,"start2":8590,"length1":16,"length2":21}]],"length":12794,"saved":false}
 {"ts":1365883976718,"patch":[[{"diffs":[[0,"                "],[1,"//"],[0,"System.out.print"]],"start1":8480,"start2":8480,"length1":32,"length2":34}]],"length":12796,"saved":false}
 {"ts":1365883981489,"patch":[[{"diffs":[[0,"        "],[1,"//"],[0,"System.o"]],"start1":8636,"start2":8636,"length1":16,"length2":18}]],"length":12798,"saved":false}
+{"ts":1365884750473,"patch":[[{"diffs":[[0,"                "],[1,"//"],[0,"responseBody = c"]],"start1":8919,"start2":8919,"length1":32,"length2":34}]],"length":12800,"saved":false}
+{"ts":1365884812438,"patch":[[{"diffs":[[0,"l_statii_hs.add("],[1,"new String"],[0,"stringValue);\n  "]],"start1":8342,"start2":8342,"length1":32,"length2":42}]],"length":12810,"saved":false}
+{"ts":1365884814802,"patch":[[{"diffs":[[0,"w String"],[1,"("],[0,"stringVa"]],"start1":8360,"start2":8360,"length1":16,"length2":17}]],"length":12811,"saved":false}
+{"ts":1365884817612,"patch":[[{"diffs":[[0,"ing(stringValue)"],[1,")"],[0,";\n              "]],"start1":8365,"start2":8365,"length1":32,"length2":33}]],"length":12812,"saved":false}
+{"ts":1365884824008,"patch":[[{"diffs":[[0,"_hs.add("],[1,"("],[0,"stringVa"]],"start1":7935,"start2":7935,"length1":16,"length2":17}]],"length":12813,"saved":false}
+{"ts":1365884826093,"patch":[[{"diffs":[[0,"ngValue)"],[1,")"],[0,";\n      "]],"start1":7948,"start2":7948,"length1":16,"length2":17}]],"length":12814,"saved":false}
+{"ts":1365884832103,"patch":[[{"diffs":[[0,"_hs.add("],[1,"new String"],[0,"(stringV"]],"start1":7935,"start2":7935,"length1":16,"length2":26}]],"length":12824,"saved":false}
