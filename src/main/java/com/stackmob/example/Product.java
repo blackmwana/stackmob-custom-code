@@ -180,13 +180,15 @@ public class Product implements CustomCodeMethod {
                             for (SMValue smString : categories) {
                                 SMString stringValue = (SMString)smString.getValue();
                                 //put old values to hashset
-                                all_cats_hs.add(new String(stringValue));
+                                //all_cats_hs.add(new String(stringValue));
+                                all_catsi_hs.add(smString.toString());
                             }
                             List<SMValue> statii = (List<SMValue>)(jsonObj.getValue().get("status").getValue());
                             for (SMValue smString : statii) {
-                                SMString stringValue = (SMString)smString.getValue();
+                                //SMString stringValue = (SMString)smString.getValue();
                                 //put old values to hashset
-                                all_statii_hs.add(new String(stringValue));
+                                //all_statii_hs.add(new String(stringValue));
+                                all_statii_hs.add(smString.toString());
                             }   
                             for (String s : all_cats_hs) {
                                 //System.out.println(s);

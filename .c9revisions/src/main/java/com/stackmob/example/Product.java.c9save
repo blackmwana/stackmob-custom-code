@@ -533,3 +533,23 @@
 {"ts":1365884824008,"patch":[[{"diffs":[[0,"_hs.add("],[1,"("],[0,"stringVa"]],"start1":7935,"start2":7935,"length1":16,"length2":17}]],"length":12813,"saved":false}
 {"ts":1365884826093,"patch":[[{"diffs":[[0,"ngValue)"],[1,")"],[0,";\n      "]],"start1":7948,"start2":7948,"length1":16,"length2":17}]],"length":12814,"saved":false}
 {"ts":1365884832103,"patch":[[{"diffs":[[0,"_hs.add("],[1,"new String"],[0,"(stringV"]],"start1":7935,"start2":7935,"length1":16,"length2":26}]],"length":12824,"saved":false}
+{"ts":1365886059046,"patch":[[{"diffs":[[0,"                "],[1,"//"],[0,"SMString stringV"]],"start1":8190,"start2":8190,"length1":32,"length2":34}]],"length":12826,"saved":false}
+{"ts":1365886064047,"patch":[[{"diffs":[[0,"                "],[1,"//"],[0,"all_statii_hs.ad"]],"start1":8338,"start2":8338,"length1":32,"length2":34}]],"length":12828,"saved":false}
+{"ts":1365886068568,"patch":[[{"diffs":[[0,"(stringValue));\n"],[1,"                                \n"],[0,"                "]],"start1":8384,"start2":8384,"length1":32,"length2":65}]],"length":12861,"saved":false}
+{"ts":1365886070447,"patch":[[{"diffs":[[0,"                "],[1,"all_statii_hs.add(new String(stringValue));"],[0,"\n               "]],"start1":8416,"start2":8416,"length1":32,"length2":75}]],"length":12904,"saved":false}
+{"ts":1365886082765,"patch":[[{"diffs":[[0,"atii_hs.add("],[-1,"new String("],[0,"stringValue)"]],"start1":8438,"start2":8438,"length1":35,"length2":24}]],"length":12893,"saved":false}
+{"ts":1365886088873,"patch":[[{"diffs":[[0,"s.add(st"],[-1,"ringValue)"],[0,");\n     "]],"start1":8444,"start2":8444,"length1":26,"length2":16}]],"length":12883,"saved":false}
+{"ts":1365886091288,"patch":[[{"diffs":[[0,"hs.add(s"],[-1,"t"],[0,");\n     "]],"start1":8443,"start2":8443,"length1":17,"length2":16}]],"length":12882,"saved":false}
+{"ts":1365886093091,"patch":[[{"diffs":[[0,"hs.add(s"],[1,"mSt"],[0,");\n     "]],"start1":8443,"start2":8443,"length1":16,"length2":19}]],"length":12885,"saved":false}
+{"ts":1365886094644,"patch":[[{"diffs":[[0,"add(smSt"],[1,"ribg"],[0,");\n     "]],"start1":8446,"start2":8446,"length1":16,"length2":20}]],"length":12889,"saved":false}
+{"ts":1365886096441,"patch":[[{"diffs":[[0,"d(smStri"],[-1,"b"],[0,"g);\n    "]],"start1":8448,"start2":8448,"length1":17,"length2":16}]],"length":12888,"saved":false}
+{"ts":1365886098386,"patch":[[{"diffs":[[0,"d(smStri"],[1,"n"],[0,"g);\n    "]],"start1":8448,"start2":8448,"length1":16,"length2":17}]],"length":12889,"saved":false}
+{"ts":1365886101062,"patch":[[{"diffs":[[0,"smString"],[1,".t"],[0,");\n     "]],"start1":8450,"start2":8450,"length1":16,"length2":18}]],"length":12891,"saved":false}
+{"ts":1365886103034,"patch":[[{"diffs":[[0,"String.t"],[1,"oStr"],[0,");\n     "]],"start1":8452,"start2":8452,"length1":16,"length2":20}]],"length":12895,"saved":false}
+{"ts":1365886104906,"patch":[[{"diffs":[[0,"ng.toStr"],[1,"ing"],[0,");\n     "]],"start1":8456,"start2":8456,"length1":16,"length2":19}]],"length":12898,"saved":false}
+{"ts":1365886106712,"patch":[[{"diffs":[[0,"toString"],[1,"()"],[0,");\n     "]],"start1":8459,"start2":8459,"length1":16,"length2":18}]],"length":12900,"saved":false}
+{"ts":1365886914395,"patch":[[{"diffs":[[0,"                "],[1,"//"],[0,"all_cats_hs.add("]],"start1":7911,"start2":7911,"length1":32,"length2":34}]],"length":12902,"saved":false}
+{"ts":1365886926194,"patch":[[{"diffs":[[0,"(stringValue));\n"],[1,"                                \n"],[0,"                "]],"start1":7955,"start2":7955,"length1":32,"length2":65}]],"length":12935,"saved":false}
+{"ts":1365886927407,"patch":[[{"diffs":[[0,"                "],[1,"all_statii_hs.add(smString.toString());"],[0,"\n               "]],"start1":7987,"start2":7987,"length1":32,"length2":71}]],"length":12974,"saved":false}
+{"ts":1365886932161,"patch":[[{"diffs":[[0,"            all_"],[1,"cat"],[0,"statii_hs.add(sm"]],"start1":7991,"start2":7991,"length1":32,"length2":35}]],"length":12977,"saved":false}
+{"ts":1365886935218,"patch":[[{"diffs":[[0,"all_cats"],[-1,"tatii"],[0,"_hs.add("]],"start1":8003,"start2":8003,"length1":21,"length2":16}]],"length":12972,"saved":false}
