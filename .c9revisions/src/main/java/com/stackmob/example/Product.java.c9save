@@ -686,3 +686,12 @@
 {"ts":1365892032362,"patch":[[{"diffs":[[0,"]=null;\n    "],[1,"String"],[0," old_statii "]],"start1":2947,"start2":2947,"length1":24,"length2":30}]],"length":13591,"saved":false}
 {"ts":1365892048642,"patch":[[{"diffs":[[0,"ing>();\n    "],[1,"//"],[0,"String all_c"]],"start1":3077,"start2":3077,"length1":24,"length2":26}]],"length":13593,"saved":false}
 {"ts":1365892153810,"patch":[[{"diffs":[[0,"g old_statii"],[1,"[]"],[0," = null;\n   "]],"start1":2964,"start2":2964,"length1":24,"length2":26}]],"length":13595,"saved":false}
+{"ts":1365895413282,"patch":[[{"diffs":[[0,"old_cats[i]="],[1,"new St"],[0,"smString.toS"]],"start1":8107,"start2":8107,"length1":24,"length2":30}]],"length":13601,"saved":false}
+{"ts":1365895415745,"patch":[[{"diffs":[[0,"]=new St"],[1,"rng"],[0,"smString"]],"start1":8117,"start2":8117,"length1":16,"length2":19}]],"length":13604,"saved":false}
+{"ts":1365895418017,"patch":[[{"diffs":[[0,"=new Str"],[1,"i"],[0,"ngsmStri"]],"start1":8118,"start2":8118,"length1":16,"length2":17}]],"length":13605,"saved":false}
+{"ts":1365895420421,"patch":[[{"diffs":[[0,"w String"],[1,"("],[0,"smString"]],"start1":8121,"start2":8121,"length1":16,"length2":17}]],"length":13606,"saved":false}
+{"ts":1365895422835,"patch":[[{"diffs":[[0,"tring.toString()"],[1,")"],[0,";i++;\n          "]],"start1":8133,"start2":8133,"length1":32,"length2":33}]],"length":13607,"saved":false}
+{"ts":1365895429478,"patch":[[{"diffs":[[0,"atii[i]="],[1,"new S"],[0,"smString"]],"start1":8828,"start2":8828,"length1":16,"length2":21}]],"length":13612,"saved":false}
+{"ts":1365895432218,"patch":[[{"diffs":[[0,"i]=new S"],[1,"tring"],[0,"smString"]],"start1":8833,"start2":8833,"length1":16,"length2":21}]],"length":13617,"saved":false}
+{"ts":1365895434645,"patch":[[{"diffs":[[0,"w String"],[1,"("],[0,"smString"]],"start1":8838,"start2":8838,"length1":16,"length2":17}]],"length":13618,"saved":false}
+{"ts":1365895437091,"patch":[[{"diffs":[[0,"String()"],[1,")"],[0,";i++;\n  "]],"start1":8858,"start2":8858,"length1":16,"length2":17}]],"length":13619,"saved":false}

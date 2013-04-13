@@ -183,7 +183,7 @@ public class Product implements CustomCodeMethod {
                                // SMString stringValue = (SMString)smString.getValue();
                                 //put old values to hashset
                                 //all_cats_hs.add(new String(stringValue));
-                                old_cats[i]=smString.toString();i++;
+                                old_cats[i]=new String(smString.toString());i++;
                                 all_cats_hs.add(smString.toString());
                             }
                             //
@@ -194,7 +194,7 @@ public class Product implements CustomCodeMethod {
                                 //SMString stringValue = (SMString)smString.getValue();
                                 //put old values to hashset
                                 //all_statii_hs.add(new String(stringValue));
-                                old_statii[i]=smString.toString();i++;
+                                old_statii[i]=new String(smString.toString());i++;
                                 all_statii_hs.add(smString.toString());
                             }   
                             for (Object s : all_cats_hs) {
