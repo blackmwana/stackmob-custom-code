@@ -176,26 +176,36 @@ public class Product implements CustomCodeMethod {
                             SMObject product= results.get(0);
                             //getting old stats and cats
                             List<SMValue> categories = (List<SMValue>)(product.getValue().get("categories").getValue());
+                            old_cats = new String[categories.size()];
+                            int i =0;
                             for (SMValue smString : categories) {
                                // SMString stringValue = (SMString)smString.getValue();
                                 //put old values to hashset
                                 //all_cats_hs.add(new String(stringValue));
+                                old_cats[i]=smString.toString();i++;
                                 all_cats_hs.add(smString.toString());
                             }
+                            //
                             List<SMValue> statii = (List<SMValue>)(product.getValue().get("status").getValue());
+                            old_statii = new String[statii.size()];
+                            i =0;
                             for (SMValue smString : statii) {
                                 //SMString stringValue = (SMString)smString.getValue();
                                 //put old values to hashset
                                 //all_statii_hs.add(new String(stringValue));
+                                old_statii[i]=smString.toString();i++;
                                 all_statii_hs.add(smString.toString());
                             }   
                             for (Object s : all_cats_hs) {
                                 //System.out.println(s);
-                                responseBody+=s;
+                                //responseBody+=s;
+                                if(Arrays.asList(new_cats).contains(s)){
+                                    
+                                }
                             }
                             for (Object s : all_statii_hs) {
                                 //System.out.println(s);
-                                responseBody+=s;
+                                //responseBody+=s;
                             }
                         }
                         else{
