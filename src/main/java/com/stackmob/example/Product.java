@@ -189,8 +189,9 @@ public class Product implements CustomCodeMethod {
                                 //all_statii_hs.add(new String(stringValue));
                                 all_statii_hs.add(smString.toString());
                             }   
-                            for ((String) s : all_cats_hs) {
+                            for (Object s : all_cats_hs) {
                                 //System.out.println(s);
+                                responseBody+=(String)s;
                             }
                             for (String s : all_statii_hs) {
                                 //System.out.println(s);
