@@ -177,7 +177,7 @@ public class Product implements CustomCodeMethod {
                             //getting old stats and cats
                             List<SMValue> categories = (List<SMValue>)(product.getValue().get("categories").getValue());
                             for (SMValue smString : categories) {
-                                SMString stringValue = (SMString)smString.getValue();
+                               // SMString stringValue = (SMString)smString.getValue();
                                 //put old values to hashset
                                 //all_cats_hs.add(new String(stringValue));
                                 all_cats_hs.add(new String(smString.toString()));

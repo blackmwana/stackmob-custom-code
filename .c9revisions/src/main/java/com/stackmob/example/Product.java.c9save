@@ -616,3 +616,4 @@
 {"ts":1365889256852,"patch":[[{"diffs":[[0,"out.println(s);\n"],[1,"                                responseBody+=(String)s;\n"],[0,"                "]],"start1":8858,"start2":8858,"length1":32,"length2":89}]],"length":13062,"saved":false}
 {"ts":1365889612019,"patch":[[{"diffs":[[0,"sponseBody+="],[-1,"(String)"],[0,"s;\n         "]],"start1":8703,"start2":8703,"length1":32,"length2":24}]],"length":13054,"saved":false}
 {"ts":1365889618157,"patch":[[{"diffs":[[0,"dy+="],[-1,"(String)"],[0,"s;\n "]],"start1":8908,"start2":8908,"length1":16,"length2":8}]],"length":13046,"saved":false}
+{"ts":1365890012437,"patch":[[{"diffs":[[0,"        "],[1,"//"],[0," SMStrin"]],"start1":7736,"start2":7736,"length1":16,"length2":18}]],"length":13048,"saved":false}
