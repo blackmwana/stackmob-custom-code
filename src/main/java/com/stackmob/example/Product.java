@@ -191,11 +191,11 @@ public class Product implements CustomCodeMethod {
                             }   
                             for (Object s : all_cats_hs) {
                                 //System.out.println(s);
-                                responseBody+=(String)s;
+                                responseBody+=s;
                             }
                             for (Object s : all_statii_hs) {
                                 //System.out.println(s);
-                                responseBody+=(String)s;
+                                responseBody+=s;
                             }
                         }
                         else{
