@@ -184,10 +184,10 @@ public class Product implements CustomCodeMethod {
     String new_statii[] = null;
     String old_cats[]=null;
     String old_statii[] = null;
-    List<String> add_cats[]=new ArrayList<String>();
-    List<String> add_statii[] =new ArrayList<String>();
-    List<String> remove_cats[]=new ArrayList<String>();
-    List<String> remove_statii[] = new ArrayList<String>();
+    List<String> add_cats=new ArrayList<String>();
+    List<String> add_statii =new ArrayList<String>();
+    List<String> remove_cats=new ArrayList<String>();
+    List<String> remove_statii = new ArrayList<String>();
     HashSet all_cats_hs = new HashSet<String>();
     HashSet all_statii_hs = new HashSet<String>();
     //String all_cats[]=null;
