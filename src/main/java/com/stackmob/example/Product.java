@@ -144,19 +144,19 @@ public class Product implements CustomCodeMethod {
             List<SMUpdate> update = new ArrayList<SMUpdate>();
             
             if (!jsonObj.isNull("title_en"));
-                update.add(new SMSet("title_en", new SMString(jsonObj.getString("title_en")));
+                update.add(new SMSet("title_en", new SMString(jsonObj.getString("title_en"))));
             if (!jsonObj.isNull("title_pl"));
-                update.add(new SMSet("title_pl", new SMString(jsonObj.getString("title_pl")));
+                update.add(new SMSet("title_pl", new SMString(jsonObj.getString("title_pl"))));
             if (!jsonObj.isNull("description_en"));
-                update.add(new SMSet("description_en", new SMString(jsonObj.getString("description_en")));
+                update.add(new SMSet("description_en", new SMString(jsonObj.getString("description_en"))));
             if (!jsonObj.isNull("description_pl"));
-                update.add(new SMSet("description_pl", new SMString(jsonObj.getString("description_pl")));
+                update.add(new SMSet("description_pl", new SMString(jsonObj.getString("description_pl"))));
             if (!jsonObj.isNull("link"));
                 update.add(new SMSet("link", new SMString(jsonObj.getString("link")));
             if (!jsonObj.isNull("picture"));
-                update.add(new SMSet("picture", new SMString(jsonObj.getString("picture")));
+                update.add(new SMSet("picture", new SMString(jsonObj.getString("picture"))));
             if (!jsonObj.isNull("price"));
-                update.add(new SMSet("price", new SMString(jsonObj.getString("price")));    
+                update.add(new SMSet("price", new SMString(jsonObj.getString("price"))));    
                 
             SMObject result = ds.updateObject("product",  jsonObj.getString("product_id"), update);  
             List<SMObject> catsToAdd=Arrays.toList(add_cats);//can be null
@@ -259,7 +259,7 @@ public class Product implements CustomCodeMethod {
                     return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
                 }
                 //create objectsavePostProduct(JSONObject jsonObj,SDKServiceProvider serviceProvider,String[] new_cats,String[] new_statii)
-                if(savePoProduct(rb,serviceProvider,new_cats,new_statii))
+                if(savePostProduct(rb,serviceProvider,new_cats,new_statii))
                     responseBody="product saved";
     		}
     		if (verb.equalsIgnoreCase("put")){
