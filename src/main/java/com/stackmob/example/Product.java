@@ -159,10 +159,10 @@ public class Product implements CustomCodeMethod {
                 update.add(new SMSet("price", new SMString(jsonObj.getString("price"))));    
                 
             SMObject result = ds.updateObject("product",  jsonObj.getString("product_id"), update);  
-            List<SMObject> catsToAdd=Arrays.asList(add_cats);//can be null
-            List<SMObject> catsToRemove=Arrays.asList(remove_cats);//can be null
-            List<SMObject> statiiToAdd=Arrays.asList(add_statii);//can be null
-            List<SMObject> statiiToRemove=Arrays.asList(remove_statii);//can be null
+            List<SMObject> catsToAdd=(List<SMString>)Arrays.asList(add_cats);//can be null
+            List<SMObject> catsToRemove=(List<SMString>)Arrays.asList(remove_cats);//can be null
+            List<SMObject> statiiToAdd=(List<SMString>)Arrays.asList(add_statii);//can be null
+            List<SMObject> statiiToRemove=(List<SMString>)Arrays.asList(remove_statii);//can be null
             
             ds.addRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "categories", catsToAdd);
             ds.addRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "status",  statiiToAdd);
