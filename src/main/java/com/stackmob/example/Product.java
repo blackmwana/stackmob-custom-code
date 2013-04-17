@@ -152,7 +152,7 @@ public class Product implements CustomCodeMethod {
             if (!jsonObj.isNull("description_pl"));
                 update.add(new SMSet("description_pl", new SMString(jsonObj.getString("description_pl"))));
             if (!jsonObj.isNull("link"));
-                update.add(new SMSet("link", new SMString(jsonObj.getString("link")));
+                update.add(new SMSet("link", new SMString(jsonObj.getString("link"))));
             if (!jsonObj.isNull("picture"));
                 update.add(new SMSet("picture", new SMString(jsonObj.getString("picture"))));
             if (!jsonObj.isNull("price"));

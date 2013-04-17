@@ -1617,3 +1617,4 @@
 {"ts":1366164662575,"patch":[[{"diffs":[[0,"scription_pl\")))"],[1,")"],[0,";\n            if"]],"start1":7639,"start2":7639,"length1":32,"length2":33}]],"length":24678,"saved":false}
 {"ts":1366164669353,"patch":[[{"diffs":[[0,"ing(\"picture\")))"],[1,")"],[0,";\n            if"]],"start1":7907,"start2":7907,"length1":32,"length2":33}]],"length":24679,"saved":false}
 {"ts":1366164674163,"patch":[[{"diffs":[[0,"rice\")))"],[1,")"],[0,";    \n  "]],"start1":8048,"start2":8048,"length1":16,"length2":17}]],"length":24680,"saved":false}
+{"ts":1366164796884,"patch":[[{"diffs":[[0,"String(\"link\")))"],[1,")"],[0,";\n            if"]],"start1":7769,"start2":7769,"length1":32,"length2":33}]],"length":24681,"saved":false}
