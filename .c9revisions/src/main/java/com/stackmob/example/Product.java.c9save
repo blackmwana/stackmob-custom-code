@@ -1635,3 +1635,22 @@
 {"ts":1366210663429,"patch":[[{"diffs":[[0,"t> catsToRemove="],[1,"(List<SMString>)"],[0,"Arrays.asList(re"]],"start1":8248,"start2":8248,"length1":32,"length2":48}]],"length":24544,"saved":false}
 {"ts":1366210668005,"patch":[[{"diffs":[[0,"iiToAdd="],[1,"(List<SMString>)"],[0,"Arrays.a"]],"start1":8352,"start2":8352,"length1":16,"length2":32}]],"length":24560,"saved":false}
 {"ts":1366210672266,"patch":[[{"diffs":[[0,"oRemove="],[1,"(List<SMString>)"],[0,"Arrays.a"]],"start1":8450,"start2":8450,"length1":16,"length2":32}]],"length":24576,"saved":false}
+{"ts":1366211019277,"patch":[[{"diffs":[[0,"(List<SMString>)"],[1,"="],[0,"Arrays.asList(ad"]],"start1":8170,"start2":8170,"length1":32,"length2":33}]],"length":24577,"saved":false}
+{"ts":1366211024016,"patch":[[{"diffs":[[0,"dd=("],[-1,"List<SMString>)="],[0,"Arra"]],"start1":8167,"start2":8167,"length1":24,"length2":8}]],"length":24561,"saved":false}
+{"ts":1366211027514,"patch":[[{"diffs":[[0,"tsToAdd="],[-1,"("],[0,"Arrays.a"]],"start1":8162,"start2":8162,"length1":17,"length2":16}]],"length":24560,"saved":false}
+{"ts":1366211033456,"patch":[[{"diffs":[[0,"oRemove="],[-1,"(List<SMString>)"],[1," "],[0,"Arrays.a"]],"start1":8240,"start2":8240,"length1":32,"length2":17}]],"length":24545,"saved":false}
+{"ts":1366211037935,"patch":[[{"diffs":[[0,"iiToAdd="],[-1,"(List<SMString>)"],[1," "],[0,"Arrays.a"]],"start1":8321,"start2":8321,"length1":32,"length2":17}]],"length":24530,"saved":false}
+{"ts":1366211042220,"patch":[[{"diffs":[[0,"ove="],[-1,"(List<SMString>)"],[1," "],[0,"Arra"]],"start1":8408,"start2":8408,"length1":24,"length2":9}]],"length":24515,"saved":false}
+{"ts":1366211113394,"patch":[[{"diffs":[[0,"serviceProvider,"],[1,"SM"],[0,"String[] add_cat"]],"start1":6700,"start2":6700,"length1":32,"length2":34}]],"length":24517,"saved":false}
+{"ts":1366211117357,"patch":[[{"diffs":[[0,"ing[] add_cats, "],[1,"SM"],[0,"String[] add_sta"]],"start1":6721,"start2":6721,"length1":32,"length2":34}]],"length":24519,"saved":false}
+{"ts":1366211121872,"patch":[[{"diffs":[[0,"ng[] add_statii,"],[1,"SM"],[0,"String[] remove_"]],"start1":6743,"start2":6743,"length1":32,"length2":34}]],"length":24521,"saved":false}
+{"ts":1366211125875,"patch":[[{"diffs":[[0,"g[] remove_cats,"],[1,"SM"],[0,"String[] remove_"]],"start1":6766,"start2":6766,"length1":32,"length2":34}]],"length":24523,"saved":false}
+{"ts":1366211151396,"patch":[[{"diffs":[[0," null;\n    List<"],[1,"s"],[0,"String> add_cats"]],"start1":9619,"start2":9619,"length1":32,"length2":33}]],"length":24524,"saved":false}
+{"ts":1366211155139,"patch":[[{"diffs":[[0,"   List<"],[-1,"s"],[1,"SM"],[0,"String> "]],"start1":9627,"start2":9627,"length1":17,"length2":18},{"diffs":[[0,"ng>();\n    List<"],[1,"SM"],[0,"String> add_stat"]],"start1":9672,"start2":9672,"length1":32,"length2":34}]],"length":24527,"saved":false}
+{"ts":1366211157214,"patch":[[{"diffs":[[0,"ng>();\n    List<"],[1,"SM"],[0,"String> remove_c"]],"start1":9728,"start2":9728,"length1":32,"length2":34}]],"length":24529,"saved":false}
+{"ts":1366211159107,"patch":[[{"diffs":[[0,");\n    List<"],[1,"SM"],[0,"String> remo"]],"start1":9788,"start2":9788,"length1":24,"length2":26}]],"length":24531,"saved":false}
+{"ts":1366211434875,"patch":[[{"diffs":[[0,"            "],[-1,"        "],[0,"\n           "]],"start1":15961,"start2":15961,"length1":32,"length2":24}]],"length":24523,"saved":false}
+{"ts":1366211440047,"patch":[[{"diffs":[[0,"l){\n"],[-1,"                        \n"],[0,"    "]],"start1":15945,"start2":15945,"length1":33,"length2":8}]],"length":24498,"saved":false}
+{"ts":1366211602920,"patch":[[{"diffs":[[0,"remove_cats.add("],[1,"NEW "],[0,"S);\n            "]],"start1":17081,"start2":17081,"length1":32,"length2":36}]],"length":24502,"saved":false}
+{"ts":1366211604938,"patch":[[{"diffs":[[0,"add("],[-1,"NEW "],[0,"S);\n"]],"start1":17093,"start2":17093,"length1":12,"length2":8}]],"length":24498,"saved":false}
+{"ts":1366211608929,"patch":[[{"diffs":[[0,"remove_cats.add("],[1,"new SM"],[0,"S);\n            "]],"start1":17081,"start2":17081,"length1":32,"length2":38}]],"length":24504,"saved":false}
