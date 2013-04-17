@@ -166,7 +166,7 @@ public class Product implements CustomCodeMethod {
             
             BulkResult catsAddResult = ds.addRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "categories", catsToAdd);
             BulkResult statiiAddResult = ds.addRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "status",  statiiToAdd);
-            ulkResult catsRemoveResult = ds.removeRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "categories", catsToRemove,false);
+            BulkResult catsRemoveResult = ds.removeRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "categories", catsToRemove,false);
             BulkResult statiiRemoveResult = ds.removeRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "status",  statiiToRemove,false);
          
   }
@@ -304,7 +304,7 @@ public class Product implements CustomCodeMethod {
                                 
                                 if(old_cats.length==0 &&  new_cats.length>0){
                                     incrementCats(old_cats,new_cats,1,responseBody,serviceProvider);
-                                    add_cats.add(Arrays.asList(new_cats));
+                                    add_cats.addAll(Arrays.asList(new_cats));
                                 }
                                 else if(old_cats.length>0&&new_cats.length==0){
                                     incrementCats(old_cats,new_cats,-1,responseBody,serviceProvider);
@@ -335,7 +335,7 @@ public class Product implements CustomCodeMethod {
                                 
                                 if(old_statii.length==0 &&  new_statii.length>0){
                                     incrementStatii(old_statii,new_statii,1,responseBody,serviceProvider);
-                                    add_statii.add(Arrays.asList(new_statii));
+                                    add_statii.addll(Arrays.asList(new_statii));
                                 }
                                 else if(old_statii.length>0&&new_statii.length==0){
                                     incrementStatii(old_statii,new_statii,-1,responseBody,serviceProvider);
