@@ -134,8 +134,8 @@ public class Product implements CustomCodeMethod {
            List<SMObject> catsToCreate=Arrays.toList(new_cats);
            List<SMObject> statiiToCreate=Arrays.toList(new_statii);
            DataService ds = serviceProvider.getDataService();
-           BulkResult catsResult = ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue()), "categories", catsToCreate);
-           BulkResult statiiResult = ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue()), "status",  statiiToCreate);
+           ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue()), "categories", catsToCreate);
+           ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue()), "status",  statiiToCreate);
   }
   private boolean savePutProduct(JSONObject jsonObj,SDKServiceProvider serviceProvider,String[] add_cats, String[] add_statii,String[] remove_cats,String[] remove_statii) throws InvalidSchemaException,DatastoreException{
         
@@ -164,10 +164,10 @@ public class Product implements CustomCodeMethod {
             List<SMObject> statiiToAdd=Arrays.toList(add_statii);//can be null
             List<SMObject> statiiToRemove=Arrays.toList(remove_statii);//can be null
             
-            BulkResult catsAddResult = ds.addRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "categories", catsToAdd);
-            BulkResult statiiAddResult = ds.addRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "status",  statiiToAdd);
-            BulkResult catsRemoveResult = ds.removeRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "categories", catsToRemove,false);
-            BulkResult statiiRemoveResult = ds.removeRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "status",  statiiToRemove,false);
+            ds.addRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "categories", catsToAdd);
+            ds.addRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "status",  statiiToAdd);
+            ds.removeRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "categories", catsToRemove,false);
+            ds.removeRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "status",  statiiToRemove,false);
          
   }
   @Override
@@ -335,7 +335,7 @@ public class Product implements CustomCodeMethod {
                                 
                                 if(old_statii.length==0 &&  new_statii.length>0){
                                     incrementStatii(old_statii,new_statii,1,responseBody,serviceProvider);
-                                    add_statii.addll(Arrays.asList(new_statii));
+                                    add_statii.addAll(Arrays.asList(new_statii));
                                 }
                                 else if(old_statii.length>0&&new_statii.length==0){
                                     incrementStatii(old_statii,new_statii,-1,responseBody,serviceProvider);
