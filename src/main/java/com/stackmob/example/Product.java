@@ -192,10 +192,10 @@ public class Product implements CustomCodeMethod {
     String new_statii[] = null;
     String old_cats[]=null;
     String old_statii[] = null;
-    List<SMString> add_cats=new ArrayList<String>();
-    List<SMString> add_statii =new ArrayList<String>();
-    List<SMString> remove_cats=new ArrayList<String>();
-    List<SMString> remove_statii = new ArrayList<String>();
+    List<SMString> add_cats=new ArrayList<SMString>();
+    List<SMString> add_statii =new ArrayList<SMString>();
+    List<SMString> remove_cats=new ArrayList<SMString>();
+    List<SMString> remove_statii = new ArrayList<SMString>();
     HashSet all_cats_hs = new HashSet<String>();
     HashSet all_statii_hs = new HashSet<String>();
     //String all_cats[]=null;
@@ -382,7 +382,7 @@ public class Product implements CustomCodeMethod {
                                     }
                                 }
                             }    //savePutProduct(JSONObject jsonObj,SDKServiceProvider serviceProvider,String[] add_cats, String[] add_statii,String[] remove_cats,String[] remove_statii)
-                            if(savePutProduct(rb,serviceProvider,add_cats.toArray(new SMString[0]),add_statii.toArray(new SMString[0]),remove_cats.toArray(new SMString[0]),remove_statii.toArray(new SMString[0])))
+                            if(savePutProduct(rb,serviceProvider,add_cats,add_statii,remove_cats ,remove_statii))
                                 responseBody="product saved";
                         }
                         else{
