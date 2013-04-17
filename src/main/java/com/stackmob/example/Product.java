@@ -131,8 +131,8 @@ public class Product implements CustomCodeMethod {
                 objMap.put("price", new SMString(jsonObj.getString("price")));  
                 
            SMObject newObj= ds.createObject("product", new SMObject(objMap));
-           List<SMObject> catsToCreate=Arrays.toList(new_cats);
-           List<SMObject> statiiToCreate=Arrays.toList(new_statii);
+           List<SMObject> catsToCreate=Arrays.asList(new_cats);
+           List<SMObject> statiiToCreate=Arrays.asList(new_statii);
            DataService ds = serviceProvider.getDataService();
            ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue()), "categories", catsToCreate);
            ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue()), "status",  statiiToCreate);
@@ -159,10 +159,10 @@ public class Product implements CustomCodeMethod {
                 update.add(new SMSet("price", new SMString(jsonObj.getString("price"))));    
                 
             SMObject result = ds.updateObject("product",  jsonObj.getString("product_id"), update);  
-            List<SMObject> catsToAdd=Arrays.toList(add_cats);//can be null
-            List<SMObject> catsToRemove=Arrays.toList(remove_cats);//can be null
-            List<SMObject> statiiToAdd=Arrays.toList(add_statii);//can be null
-            List<SMObject> statiiToRemove=Arrays.toList(remove_statii);//can be null
+            List<SMObject> catsToAdd=Arrays.asList(add_cats);//can be null
+            List<SMObject> catsToRemove=Arrays.asList(remove_cats);//can be null
+            List<SMObject> statiiToAdd=Arrays.asList(add_statii);//can be null
+            List<SMObject> statiiToRemove=Arrays.asList(remove_statii);//can be null
             
             ds.addRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "categories", catsToAdd);
             ds.addRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "status",  statiiToAdd);
