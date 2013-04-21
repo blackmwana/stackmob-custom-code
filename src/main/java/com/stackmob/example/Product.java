@@ -131,17 +131,18 @@ public class Product implements CustomCodeMethod {
                 objMap.put("price", new SMString(jsonObj.getString("price")));  
                 
            SMObject newObj= ds.createObject("product", new SMObject(objMap));
-           ArrayList<SMString> new_cats_sm= new SMString[new_cats.length];
+           List<SMValue> new_cats_sm= new ArrayList<SMValue>(); 
            for(int i=0;i<new_cats.length;i++){
-               new_cats_sm[i]=new SMString(new_cats[i]);
+               new_cats_sm.add(new SMString(new_cats[i]));
            }
-           List<SMString> new_statii_sm= new ArrayList<SMString>();//left it her
+           List<SMValue> new_statii_sm= new ArrayList<SMValue>();//left it her
            for(int i=0;i<new_statii.length;i++){
-               new_statii_sm[i]=new SMString(new_statii[i]);
+               new_statii_sm.add(new SMString(new_statii[i]));
            }
-           List<SMValue> catsToCreate=Arrays.asList(new_cats_sm);
-           List<SMValue> statiiToCreate=Arrays.asList(new_statii_sm);
-           DataService ds = serviceProvider.getDataService();
+           //remove these two lines
+           List<SMValue> catsToCreate=new_cats_sm;
+           List<SMValue> statiiToCreate=new_statii_sm;
+            
            ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue()), "categories", catsToCreate);
            ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue()), "status",  statiiToCreate);
   }
@@ -167,8 +168,8 @@ public class Product implements CustomCodeMethod {
                 update.add(new SMSet("price", new SMString(jsonObj.getString("price"))));    
                 
             SMObject result = ds.updateObject("product",  jsonObj.getString("product_id"), update);  
-                
-            List<SMValue> catsToAdd=add_cats;//Arrays.asList(add_cats);//can be null
+            //remove the following 4 lines if they are not necessary
+            List<SMValue> catsToAdd=add_cats;//Arrays.asList(add_cats);//can be null//
             List<SMValue> catsToRemove=remove_cats;// Arrays.asList(remove_cats);//can be null
             List<SMValue> statiiToAdd= add_statii;//Arrays.asList(add_statii);//can be null
             List<SMValue> statiiToRemove=remove_statii;// Arrays.asList(remove_statii);//can be null
