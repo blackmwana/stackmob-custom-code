@@ -110,7 +110,7 @@ public class Product implements CustomCodeMethod {
  		}
         
   }
-  private boolean savePostProduct(JSONObject jsonObj,SDKServiceProvider serviceProvider,String[] new_cats,String[] new_statii) throws InvalidSchemaException,DatastoreException{
+  private boolean savePostProduct(JSONObject jsonObj,SDKServiceProvider serviceProvider,String[] new_cats,String[] new_statii) throws InvalidSchemaException,DatastoreException,JSONException{
         
         DataService ds = serviceProvider.getDataService();
          
@@ -146,7 +146,7 @@ public class Product implements CustomCodeMethod {
            ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue().toString()), "categories", catsToCreate);
            ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue().toString()), "status",  statiiToCreate);
   }
-  private boolean savePutProduct(JSONObject jsonObj,SDKServiceProvider serviceProvider,List<SMValue>add_cats, List<SMValue> add_statii,List<SMValue> remove_cats,List<SMValue> remove_statii) throws InvalidSchemaException,DatastoreException{
+  private boolean savePutProduct(JSONObject jsonObj,SDKServiceProvider serviceProvider,List<SMValue>add_cats, List<SMValue> add_statii,List<SMValue> remove_cats,List<SMValue> remove_statii) throws InvalidSchemaException,DatastoreException,JSONException{
         
         DataService ds = serviceProvider.getDataService();
          
