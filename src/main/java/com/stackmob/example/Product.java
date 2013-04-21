@@ -143,8 +143,8 @@ public class Product implements CustomCodeMethod {
            List<SMValue> catsToCreate=new_cats_sm;
            List<SMValue> statiiToCreate=new_statii_sm;
             
-           ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue()), "categories", catsToCreate);
-           ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue()), "status",  statiiToCreate);
+           ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue().toString()), "categories", catsToCreate);
+           ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue().toString()), "status",  statiiToCreate);
   }
   private boolean savePutProduct(JSONObject jsonObj,SDKServiceProvider serviceProvider,List<SMValue>add_cats, List<SMValue> add_statii,List<SMValue> remove_cats,List<SMValue> remove_statii) throws InvalidSchemaException,DatastoreException{
         
