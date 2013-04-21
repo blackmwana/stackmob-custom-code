@@ -420,29 +420,32 @@ public class Product implements CustomCodeMethod {
                 if (!jsonObj.isNull("product_id")){  
                    
                     try{
-                    incrementAll(new_cats,new_statii,-1,responseBody,serviceProvider);
-                    //delete product
-                    DataService ds = serviceProvider.getDataService();
-                    if(ds.deleteObject("product", jsonObj.getString("product_id")))//remove SMstring constructor
-                        responseBody="product deleted";
-     		    }
+                        incrementAll(new_cats,new_statii,-1,responseBody,serviceProvider);
+                        //delete product
+                        DataService ds = serviceProvider.getDataService();
+                        if(ds.deleteObject("product", jsonObj.getString("product_id")))//remove SMstring constructor
+                            responseBody="product deleted";
+     		        }
                     catch (InvalidSchemaException e) {
-                    HashMap<String, String> errMap = new HashMap<String, String>();
-                    errMap.put("error", "invalid_schema");
-                    errMap.put("detail", e.toString());
-                    return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+                        HashMap<String, String> errMap = new HashMap<String, String>();
+                        errMap.put("error", "invalid_schema");
+                        errMap.put("detail", e.toString());
+                        return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
                     } catch (DatastoreException e) {
-                    HashMap<String, String> errMap = new HashMap<String, String>();
-                    errMap.put("error", "datastore_exception");
-                    errMap.put("detail", e.toString());
-                    return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+                        HashMap<String, String> errMap = new HashMap<String, String>();
+                        errMap.put("error", "datastore_exception");
+                        errMap.put("detail", e.toString());
+                        return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
                     } catch(Exception e) {
-                    HashMap<String, String> errMap = new HashMap<String, String>();
-                    errMap.put("error", "unknown");
-                    errMap.put("detail", e.toString());
-                    return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
-                }
+                        HashMap<String, String> errMap = new HashMap<String, String>();
+                        errMap.put("error", "unknown");
+                        errMap.put("detail", e.toString());
+                        return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+                    }
     		    }
+                else{
+                    responseBody="product_id not defined";
+                }
     		}
             
     	}
