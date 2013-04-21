@@ -315,14 +315,14 @@ public class Product implements CustomCodeMethod {
                                     
                                     for(String S:new_cats){
                                         //remove_cats.add(new SMString(S));    
-                                        add_cats.add(new SMValue(S));
+                                        add_cats.add(new SMString(S));
                                     }
                                 }
                                 else if(old_cats.length>0 && new_cats.length==0){
                                     incrementCats(old_cats,new_cats,-1,responseBody,serviceProvider);
                                     //populate remove cats with old cats
                                     for(String S:old_cats){
-                                        remove_cats.add(new SMValue(S));    
+                                        remove_cats.add(new SMString(S));    
                                     }
                                     
                                 }
@@ -331,14 +331,14 @@ public class Product implements CustomCodeMethod {
                                         String S=(String)s;
                                         if(Arrays.asList(old_cats).contains(S) && !Arrays.asList(new_cats).contains(S)){
                                             //add to cats to remove
-                                            remove_cats.add(new SMValue(S));
+                                            remove_cats.add(new SMString(S));
                                             List<SMUpdate> update = new ArrayList<SMUpdate>();
                                             update.add(new SMIncrement("count", -1));
                                             SMObject incrementResult = ds.updateObject("category",S, update);      
                                         }
                                         else if(!Arrays.asList(old_cats).contains(S) && Arrays.asList(new_cats).contains(S)){
                                             //add to cats to add
-                                            add_cats.add(new SMValue(S));
+                                            add_cats.add(new SMString(S));
                                             List<SMUpdate> update = new ArrayList<SMUpdate>();
                                             update.add(new SMIncrement("count", 1));
                                             SMObject incrementResult = ds.updateObject("category",S, update);    
@@ -351,7 +351,7 @@ public class Product implements CustomCodeMethod {
                                 if(old_statii.length==0 &&  new_statii.length>0){
                                     incrementStatii(old_statii,new_statii,1,responseBody,serviceProvider);
                                     for(String S:new_statii){
-                                        add_statii.add(new SMValue(S));
+                                        add_statii.add(new SMString(S));
                                     }
                                     
                                 }
@@ -360,7 +360,7 @@ public class Product implements CustomCodeMethod {
                                     //populate remove cats with old cats
                                     //remove_statii.addAll(Arrays.asList(old_statii));
                                     for(String S:old_statii){
-                                        remove_statii.add(new SMValue(S));
+                                        remove_statii.add(new SMString(S));
                                     }
                                 }
                                 else if(old_statii.length>0 && new_statii.length>0){
@@ -368,14 +368,14 @@ public class Product implements CustomCodeMethod {
                                         String S=(String)s;
                                         if(Arrays.asList(old_statii).contains(S)&&!Arrays.asList(new_statii).contains(S)){
                                             //add to statii to remove
-                                            remove_statii.add(new SMValue(S));
+                                            remove_statii.add(new SMString(S));
                                             List<SMUpdate> update = new ArrayList<SMUpdate>();
                                             update.add(new SMIncrement("count", -1));
                                             SMObject incrementResult = ds.updateObject("status",S, update);      
                                         }
                                         else if(!Arrays.asList(old_statii).contains(S)&&Arrays.asList(new_statii).contains(S)){
                                             //add to statii to add
-                                            add_statii.add(new SMValue(S));
+                                            add_statii.add(new SMString(S));
                                             List<SMUpdate> update = new ArrayList<SMUpdate>();
                                             update.add(new SMIncrement("count", 1));
                                             SMObject incrementResult = ds.updateObject("status",S, update);    
