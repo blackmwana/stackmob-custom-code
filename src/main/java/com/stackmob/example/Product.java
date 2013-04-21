@@ -131,16 +131,16 @@ public class Product implements CustomCodeMethod {
                 objMap.put("price", new SMString(jsonObj.getString("price")));  
                 
            SMObject newObj= ds.createObject("product", new SMObject(objMap));
-           SMString[] new_cats_sm= new SMString[new_cats.length];
+           ArrayList<SMString> new_cats_sm= new SMString[new_cats.length];
            for(int i=0;i<new_cats.length;i++){
                new_cats_sm[i]=new SMString(new_cats[i]);
            }
-           SMString[] new_statii_sm= new SMString[new_statii.length];
+           List<SMString> new_statii_sm= new ArrayList<SMString>();//left it her
            for(int i=0;i<new_statii.length;i++){
                new_statii_sm[i]=new SMString(new_statii[i]);
            }
-           List<SMObject> catsToCreate=Arrays.asList(new_cats_sm);
-           List<SMObject> statiiToCreate=Arrays.asList(new_statii_sm);
+           List<SMValue> catsToCreate=Arrays.asList(new_cats_sm);
+           List<SMValue> statiiToCreate=Arrays.asList(new_statii_sm);
            DataService ds = serviceProvider.getDataService();
            ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue()), "categories", catsToCreate);
            ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue()), "status",  statiiToCreate);
@@ -167,10 +167,11 @@ public class Product implements CustomCodeMethod {
                 update.add(new SMSet("price", new SMString(jsonObj.getString("price"))));    
                 
             SMObject result = ds.updateObject("product",  jsonObj.getString("product_id"), update);  
-            List<SMObject> catsToAdd=add_cats;//Arrays.asList(add_cats);//can be null
-            List<SMObject> catsToRemove=remove_cats;// Arrays.asList(remove_cats);//can be null
-            List<SMObject> statiiToAdd= add_statii;//Arrays.asList(add_statii);//can be null
-            List<SMObject> statiiToRemove=remove_statii;// Arrays.asList(remove_statii);//can be null
+                
+            List<SMValue> catsToAdd=add_cats;//Arrays.asList(add_cats);//can be null
+            List<SMValue> catsToRemove=remove_cats;// Arrays.asList(remove_cats);//can be null
+            List<SMValue> statiiToAdd= add_statii;//Arrays.asList(add_statii);//can be null
+            List<SMValue> statiiToRemove=remove_statii;// Arrays.asList(remove_statii);//can be null
             
             ds.addRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "categories", catsToAdd);
             ds.addRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "status",  statiiToAdd);
