@@ -167,6 +167,9 @@ public class Product implements CustomCodeMethod {
                 update.add(new SMSet("price", new SMString(jsonObj.getString("price"))));    
                 
             SMObject result = ds.updateObject("product",  jsonObj.getString("product_id"), update);  
+            
+            
+            
                 
             List<SMValue> catsToAdd=(List<SMValue>)add_cats;//Arrays.asList(add_cats);//can be null
             List<SMValue> catsToRemove=(List<SMValue>)remove_cats;// Arrays.asList(remove_cats);//can be null
