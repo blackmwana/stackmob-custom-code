@@ -443,7 +443,6 @@ public class Product implements CustomCodeMethod {
                     return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
                 }
     		    }
-                
     		}
             
     	}
@@ -451,9 +450,19 @@ public class Product implements CustomCodeMethod {
           sb.append("Caught JSON Exception");
           e.printStackTrace();
     	}
-        catch (InvalidSchemaException e) {
+        catch (InvalidSchemaException e){
             HashMap<String, String> errMap = new HashMap<String, String>();
             errMap.put("error", "invalid_schema");
+            errMap.put("detail", e.toString());
+            return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+        } catch (DatastoreException e) {
+            HashMap<String, String> errMap = new HashMap<String, String>();
+            errMap.put("error", "datastore_exception");
+            errMap.put("detail", e.toString());
+            return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+        } catch(Exception e) {
+            HashMap<String, String> errMap = new HashMap<String, String>();
+            errMap.put("error", "unknown");
             errMap.put("detail", e.toString());
             return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
         }
