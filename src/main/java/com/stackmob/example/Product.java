@@ -145,6 +145,7 @@ public class Product implements CustomCodeMethod {
             
            ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue().toString()), "categories", catsToCreate);
            ds.addRelatedObjects("product", new SMString(newObj.getValue().get("product_id").getValue().toString()), "status",  statiiToCreate);
+           return true;
   }
   private boolean savePutProduct(JSONObject jsonObj,SDKServiceProvider serviceProvider,List<SMValue>add_cats, List<SMValue> add_statii,List<SMValue> remove_cats,List<SMValue> remove_statii) throws InvalidSchemaException,DatastoreException,JSONException{
         
@@ -178,7 +179,8 @@ public class Product implements CustomCodeMethod {
             ds.addRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "status",  statiiToAdd);
             ds.removeRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "categories", catsToRemove,false);
             ds.removeRelatedObjects("product", new SMString(jsonObj.getString("product_id")), "status",  statiiToRemove,false);
-         
+            
+            return true;
   }
   @Override
   public ResponseToProcess execute(ProcessedAPIRequest request, SDKServiceProvider serviceProvider) {
@@ -449,6 +451,12 @@ public class Product implements CustomCodeMethod {
           sb.append("Caught JSON Exception");
           e.printStackTrace();
     	}
+        catch (InvalidSchemaException e) {
+            HashMap<String, String> errMap = new HashMap<String, String>();
+            errMap.put("error", "invalid_schema");
+            errMap.put("detail", e.toString());
+            return new ResponseToProcess(HttpURLConnection.HTTP_INTERNAL_ERROR, errMap); // http 500 - internal server error
+        }
     } else sb.append("Request body is empty");
     //map.put("reqbody",reqb);
     map.put("response_body", responseBody);
